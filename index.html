@@ -129,7 +129,16 @@ button{font:inherit;color:inherit}
 
 .big-out{margin:6px 0 0;text-align:center;font:clamp(28px,7.4vw,58px)/1.1 var(--pixel);color:var(--gold);text-shadow:4px 4px 0 #c2410c,8px 8px 0 #000;animation:pop .6s cubic-bezier(.2,1.7,.4,1) both}
 .big-out.punt{color:var(--chalk);text-shadow:4px 4px 0 #39417a,8px 8px 0 #000}
-.sum{margin:0;text-align:center;font-size:28px}
+.sum{margin:0;text-align:center;font-size:26px;color:var(--dim)}
+.board{display:grid;grid-template-columns:2fr 1fr 1fr;gap:18px;margin:6px 4px}
+.board .cell{--fc:#39417a;background:var(--well);padding:16px 10px 14px;text-align:center;display:flex;flex-direction:column;gap:10px;justify-content:center;
+  box-shadow:0 -4px 0 0 var(--fc),0 4px 0 0 var(--fc),-4px 0 0 0 var(--fc),4px 0 0 0 var(--fc)}
+.board .cell.main{--fc:var(--gold)}
+.board .lab{font:9px/1.4 var(--pixel);color:var(--dim);text-transform:uppercase;letter-spacing:.12em}
+.board .val{font:clamp(20px,4.6vw,38px)/1.1 var(--pixel);color:var(--chalk);text-shadow:3px 3px 0 #000;font-variant-numeric:tabular-nums}
+.board .main .val{color:var(--gold);font-size:clamp(22px,4.4vw,36px);white-space:nowrap}
+.board .hint{font-size:21px;color:var(--dim);line-height:1}
+.today-spot{margin:0;font:clamp(11px,2.2vw,15px)/1.5 var(--pixel);color:var(--chalk)}
 .emo{margin:0;text-align:center;font-size:30px;letter-spacing:6px}
 .copyrow{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap}
 .toast{font:11px/1.4 var(--pixel);color:var(--gold)}
@@ -206,6 +215,8 @@ button{font:inherit;color:inherit}
   .mascot{width:54px;height:42px}
   .bubble{font-size:20px;margin-bottom:24px}
   .groups>div,.tiers li{grid-template-columns:1fr;gap:2px}
+  .board{grid-template-columns:1fr 1fr;gap:14px}
+  .board .main{grid-column:1 / -1}
   .rrow{grid-template-columns:1fr}
   .rrow .rq,.rrow .you,.rrow .ans-btn{grid-column:1;grid-row:auto}
   .rrow .ans-btn{justify-self:start;margin-top:8px}
@@ -972,9 +983,9 @@ function yardsOf(ans){ return ans.reduce((s, a) => s + TIER[a.tier].yds, 0); }
 function spot(pos){ if (pos >= 100) return 'the end zone'; if (pos === 50) return 'midfield'; return pos < 50 ? `own ${pos}` : `opp ${100 - pos}`; }
 function outcome(yds){
   const pos = START + yds;
-  if (pos >= 100) return { k:'td', label:'Touchdown', line:`${yds} yards on seven plays. Spike it.` };
-  if (pos >= 65) return { k:'fg', label:'Field goal', line:`${yds} yards. Good from ${100 - pos + 17} out.` };
-  return { k:'punt', label:'Punt', line:`${yds} yards. Stalled at the ${spot(pos)}. Punt team, you\u2019re up.` };
+  if (pos >= 100) return { k:'td', label:'Touchdown', line:'Six points. Spike it.' };
+  if (pos >= 65) return { k:'fg', label:'Field goal', line:'The kick is up… and it\u2019s good.' };
+  return { k:'punt', label:'Punt', line:'Fourth down. Punt team, you\u2019re up.' };
 }
 
 
@@ -1185,7 +1196,7 @@ function viewHome(){
   const g = S.daily, done = g.phase === 'final', started = !done && (g.ans.length > 0 || g.miss.length > 0);
   const yds = yardsOf(g.ans), o = outcome(yds);
   const main = done
-    ? `<div class="today frame"><p class="eyebrow">Today’s drive</p><p class="today-out ${o.k}">${o.label.toUpperCase()} · ${yds} YDS</p><p class="emo">${g.ans.map(a => TIER[a.tier].e).join('')}</p></div>
+    ? `<div class="today frame"><p class="eyebrow">Today’s drive</p><p class="today-out ${o.k}">${o.label.toUpperCase()}</p><p class="today-spot">${resultLine(yds).toUpperCase()}</p><p class="emo">${g.ans.map(a => TIER[a.tier].e).join('')}</p></div>
        <button class="btn big" id="go">See the recap</button><p class="next" id="nextin"></p>`
     : `<button class="btn big" id="go"><span class="blink">▶</span> ${started ? 'Resume drive' : 'Kick off'} <span class="blink">◀</span></button>`;
   return `<section class="home" style="display:flex;flex-direction:column;gap:22px">
@@ -1252,9 +1263,20 @@ function viewResult(g){
     ${buddy(pick(LINES[a.tier]))}`;
 }
 
+function ballSpot(yds){ const pos = START + yds; return pos >= 100 ? 'END ZONE' : spot(pos).toUpperCase(); }
+function resultLine(yds){ return START + yds >= 100 ? `Into the end zone · ${yds} yds` : `Ball on ${ballSpot(yds)} · ${yds} yds`; }
+function scoreboard(g){
+  const yds = yardsOf(g.ans), hm = g.ans.filter(a => a.tier === 'H').length, pos = START + yds;
+  const sub = pos >= 100 ? `${pos - 100} yds to spare` : pos >= 65 ? `${100 - pos + 17}-yd field goal` : `${65 - pos} yds short of FG range`;
+  return `<div class="board" role="group" aria-label="Drive result">
+      <div class="cell main"><span class="lab">Ball on</span><span class="val">${ballSpot(yds)}</span><span class="hint">${sub}</span></div>
+      <div class="cell"><span class="lab">Total yards</span><span class="val">${yds}</span></div>
+      <div class="cell"><span class="lab">Hail Marys</span><span class="val">${hm}</span></div>
+    </div>`;
+}
 function shareText(g){
   const yds = yardsOf(g.ans), o = outcome(yds);
-  return `${S.mode === 'practice' ? 'Deep Ball practice' : `Deep Ball #${driveNo(g.date)}`} 🏈 ${o.label.toUpperCase()} · ${yds} yds\n${g.ans.map(a => TIER[a.tier].e).join('')}${GAME_URL ? '\n' + GAME_URL : ''}`;
+  return `${S.mode === 'practice' ? 'Deep Ball practice' : `Deep Ball #${driveNo(g.date)}`} 🏈 ${o.label.toUpperCase()}\n${resultLine(yds)}\n${g.ans.map(a => TIER[a.tier].e).join('')}${GAME_URL ? '\n' + GAME_URL : ''}`;
 }
 function answersHTML(p, mine){
   return '<div class="groups">' + RAREST_FIRST.map(t => {
@@ -1283,6 +1305,7 @@ function viewFinal(g){
   return `<div class="card frame">
       <p class="eyebrow center">${eyebrow}</p>
       <h2 class="big-out ${o.k}">${o.label.toUpperCase()}${o.k === 'td' ? '!' : ''}</h2>
+      ${scoreboard(g)}
       <p class="sum">${o.line}</p>
       <p class="emo" aria-label="Your seven plays">${g.ans.map(a => TIER[a.tier].e).join('')}</p>
       <div class="copyrow"><button class="btn ghost" id="copy">Copy result</button><span class="toast" id="toast" role="status"></span></div>
@@ -1301,7 +1324,7 @@ function viewArchive(){
   const tile = (d, today) => {
     const r = store.days[d], n = driveNo(d);
     let status = '<span class="ts go">▶ Play</span>';
-    if (r && r.phase === 'final'){ const y = yardsOf(r.ans), o = outcome(y); status = `<span class="ts ${o.k}">${o.k === 'td' ? 'TD' : o.k === 'fg' ? 'FG' : 'PUNT'} · ${y}</span><span class="te">${r.ans.map(a => TIER[a.tier].e).join('')}</span>`; }
+    if (r && r.phase === 'final'){ const y = yardsOf(r.ans), o = outcome(y); status = `<span class="ts ${o.k}">${o.k === 'td' ? 'TD' : o.k === 'fg' ? 'FG' : 'PUNT'} · ${o.k === 'td' ? y + ' YDS' : ballSpot(y)}</span><span class="te">${r.ans.map(a => TIER[a.tier].e).join('')}</span>`; }
     else if (r && (r.ans.length || r.miss.length)) status = `<span class="ts go">▶ Resume ${r.ans.length}/7</span>`;
     return `<button class="tile frame${today ? ' today' : ''}" data-date="${d}"><span class="tn">#${n}</span><span class="tdate">${today ? 'TODAY' : shortDate(d)}</span>${status}</button>`;
   };
