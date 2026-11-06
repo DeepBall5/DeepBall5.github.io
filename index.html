@@ -81,6 +81,7 @@ button{font:inherit;color:inherit}
 .title h1{margin:0;font:clamp(18px,6.2vw,50px)/1 var(--pixel);color:var(--gold);letter-spacing:.02em;text-shadow:4px 4px 0 #c2410c,8px 8px 0 #000}
 .kicker{margin:14px 0 0;font:clamp(9px,1.7vw,13px)/1 var(--pixel);letter-spacing:.42em;color:var(--chalk);text-shadow:2px 2px 0 #000}
 .hero .buddy{position:absolute;left:50%;bottom:7%;transform:translateX(-36px)}
+.hero .buddy{max-width:calc(50% + 26px)} .hero .bubble{white-space:normal;line-height:1.05}
 .tagline{margin:0;text-align:center;font-size:26px;color:var(--dim)}
 .meta{margin:-6px 0 -4px;text-align:center;font:11px/1.6 var(--pixel);color:var(--dim);text-transform:uppercase;letter-spacing:.06em}
 /* Menu: chunky arcade buttons, each with its own accent color and pixel icon */
@@ -189,6 +190,69 @@ button{font:inherit;color:inherit}
 .fbar i{display:block;width:var(--w);background:var(--c);opacity:.45}
 .fbar i.me{opacity:1;outline:2px solid var(--chalk);outline-offset:0;position:relative;z-index:1}
 .flab{font:9px/1.4 var(--pixel);color:var(--dim);text-transform:uppercase}
+
+/* Fourth down + audible */
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:6px}
+.choice{--fc:#39417a;border:0;cursor:pointer;background:var(--well);color:var(--chalk);text-align:left;padding:18px 16px;display:flex;flex-direction:column;gap:8px;
+  box-shadow:0 -4px 0 0 var(--fc),0 4px 0 0 var(--fc),-4px 0 0 0 var(--fc),4px 0 0 0 var(--fc),6px 6px 0 2px rgba(0,0,0,.45)}
+.choice b{font:16px/1.2 var(--pixel);text-transform:uppercase;font-weight:400}
+.choice span{font-size:21px;line-height:1.2;color:var(--dim)}
+.choice em{font-style:normal;color:var(--gold)}
+.choice.go{--fc:var(--gold)} .choice.go b{color:var(--gold)}
+.choice.safe b{color:var(--t-s)}
+.choice:hover{transform:translate(-1px,-2px)} .choice:active{transform:translate(3px,3px)}
+.gamble{margin:0;font:11px/1.6 var(--pixel);color:var(--gold);text-transform:uppercase}
+.audrow{min-height:0}
+.audible{margin:2px 0 0;font-size:10px}
+.audline{margin:4px 0 0;font-size:22px;color:var(--t-c)}
+.audline b{color:var(--chalk);font-weight:400}
+.yds .gold{color:var(--gold)} .yds .bad{color:var(--t-c)}
+/* Challenges */
+.inbox{--fc:var(--t-c);padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.inb{margin:0;font-size:24px;line-height:1.25}
+.inb b{font-weight:400;color:var(--chalk)} .inb .td{color:var(--gold)} .inb .fg{color:var(--t-s)} .inb .punt{color:var(--dim)}
+.inb-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.chal-box{display:flex;justify-content:center;align-items:center;gap:10px 12px;flex-wrap:wrap;margin-top:4px}
+.name-in{background:var(--well);border:0;color:var(--chalk);font:22px var(--mono);padding:9px 12px;width:180px;box-shadow:0 -3px 0 0 #39417a,0 3px 0 0 #39417a,-3px 0 0 0 #39417a,3px 0 0 0 #39417a}
+.name-in:focus{outline:2px solid var(--gold);outline-offset:4px}
+.h2h{--fc:var(--t-c);margin:10px 4px 6px;padding:16px 16px 12px;display:flex;flex-direction:column;gap:8px;background:var(--well)}
+.h-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.h-score{font:12px/1 var(--pixel);color:var(--dim);text-transform:uppercase}
+.h-score b{color:var(--chalk);font-weight:400;font-size:16px}
+.h-verdict{margin:0;font:clamp(13px,2.4vw,17px)/1.4 var(--pixel);color:var(--chalk)}
+.h-verdict.win{color:var(--gold)} .h-verdict.lose{color:var(--t-c)}
+.h-verdict .dim{font:20px var(--mono)}
+.h-rows{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.h-rows li{display:grid;grid-template-columns:minmax(90px,1.1fr) 1fr 1fr 22px;gap:8px;align-items:center;padding:5px 6px;font-size:20px;line-height:1.15}
+.h-rows li.w{background:rgba(255,210,63,.08)} .h-rows li.l{background:rgba(255,124,192,.06)}
+.h-rows .h-head{font:9px var(--pixel);color:var(--dim);text-transform:uppercase}
+.h-q{font:9px/1.4 var(--pixel);color:var(--dim);text-transform:uppercase}
+.h-a{color:var(--chalk);overflow-wrap:anywhere} .h-a i{font-style:normal;margin-right:4px} .h-a em{font-style:normal;color:var(--c)}
+.h-m{font:12px var(--pixel);color:var(--gold);text-align:center} li.l .h-m{color:var(--t-c)} li.t .h-m{color:var(--dim)}
+/* Stats sheet */
+.sh{margin:22px 0 6px;font:13px/1.4 var(--pixel);color:var(--gold);text-transform:uppercase;font-weight:400}
+.sh .dim{font:18px var(--mono);margin-left:6px}
+.sw{margin:0 0 6px;font-size:24px} .sw b{font-weight:400;color:var(--chalk)}
+.cats{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(110px,1.2fr) 1.4fr auto auto;gap:6px 10px;align-items:center;font-size:20px}
+.cats li{display:contents}
+.cn{color:var(--chalk)} .cb{height:10px;background:var(--well);display:block} .cb i{display:block;height:100%;background:var(--t-s)}
+.cr{font:9px var(--pixel);color:var(--gold);text-transform:uppercase} .cc{color:var(--dim);font-size:18px;white-space:nowrap}
+.trend{width:100%;height:auto;aspect-ratio:440/120;flex:none;display:block;margin-top:4px}
+.sheet > *{flex-shrink:0}
+.trend text{font:10px var(--pixel);fill:var(--dim)}
+.trend .mark{stroke-width:1.5;stroke-dasharray:3 3} .trend .fgl{stroke:var(--t-s)} .trend .tdl{stroke:var(--gold)} .trend .axis{stroke:#39417a;stroke-width:2}
+.badges{list-style:none;margin:6px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.badges li{display:flex;flex-direction:column;gap:3px;padding:10px;background:var(--well);font-size:18px;line-height:1.15;color:var(--dim)}
+.badges li b{font:10px/1.3 var(--pixel);text-transform:uppercase;font-weight:400;color:var(--chalk)}
+.badges .be{font-size:26px} .badges li.off{opacity:.55} .badges li.on{box-shadow:inset 0 3px 0 0 var(--gold)}
+@media (max-width:560px){
+  .choices{grid-template-columns:1fr}
+  .h-rows li{grid-template-columns:1fr 1fr 18px;font-size:18px}
+  .h-rows .h-q{grid-column:1 / -1}
+  .h-rows .h-head .h-q{display:none}
+  .badges{grid-template-columns:1fr 1fr}
+  .cats{grid-template-columns:1fr 1fr;row-gap:2px} .cats .cr,.cats .cc{margin-bottom:6px}
+}
 /* How you stack up */
 .compare{--fc:var(--t-s);margin:10px 4px 6px;padding:18px 18px 14px;display:flex;flex-direction:column;gap:10px;background:var(--well)}
 .cmp-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
@@ -259,6 +323,7 @@ button{font:inherit;color:inherit}
   body{font-size:21px}
   .mascot{width:54px;height:42px}
   .bubble{font-size:20px;margin-bottom:24px}
+  .buddy{max-width:100%} .bubble{white-space:normal;line-height:1.05;min-width:0}
   .groups>div,.tiers li{grid-template-columns:1fr;gap:2px}
   .board{grid-template-columns:1fr 1fr;gap:14px}
   .board .main{grid-column:1 / -1}
@@ -1127,6 +1192,9 @@ PROMPTS.push(
   T('t_mvpteam', 'Name a team that has had an MVP since 2000.', 'Whoever the AP MVP played for that season, 2000–2025.', {
     K:['patriots','chiefs','packers'], S:['colts','broncos','ravens','bills'], P:['rams','panthers','falcons','vikings'], F:['chargers','seahawks','raiders'], H:['titans'] }, { sim:{ miss:.06 } });
 
+  T('t_dpoyteam', 'Name a team that has had a Defensive Player of the Year since 2000.', 'Whoever the AP DPOY played for that season, 2000–2025.', {
+    K:['steelers','ravens','rams'], S:['texans','bears','browns','niners'], P:['giants','packers','buccaneers','patriots','broncos'], F:['colts','dolphins','panthers','raiders'] }, { sim:{ miss:.15 } });
+
   /* ---------- people, places and the game itself ---------- */
   W('m_commish', 'Name an NFL commissioner (or league president).', 'Every one since 1920 counts.', {
     K:['Roger Goodell|goodell'], S:['Pete Rozelle|rozelle','Paul Tagliabue|tagliabue'], P:['Bert Bell'], F:['Jim Thorpe','Joe Carr|joseph carr'], H:['Elmer Layden','Carl Storck','Austin Gunsel'] },
@@ -1162,6 +1230,12 @@ PROMPTS.push(
     K:['Draw','Sweep|toss sweep'], S:['QB Sneak|sneak|tush push|brotherly shove','Toss','Counter'], P:['Power','Trap','Option|read option|zone read','Reverse','End Around'],
     F:['Inside Zone|zone|zone run','Outside Zone|stretch|wide zone','Jet Sweep','Iso|isolation|blast','Dive|belly'], H:['Pitch','Wham','Duo','Buck Sweep','Speed Option|triple option','Fumblerooski'] },
     { fmt:'xo', fam:'xo', sim:{ miss:.06 } });
+  W('m_fronts', 'Name a defensive front or personnel package.', 'Alignments and sub packages, any era.', {
+    K:['4-3|4 3|four three|43','3-4|3 4|three four|34'], S:['Nickel|nickel package|nickel defense','Dime|dime package|dime defense','46|46 defense|bear|bear defense'],
+    P:['Goal Line|goal line defense','4-2-5|4 2 5|425','3-3-5|3 3 5|335|3 3 stack|stack','Quarter|quarter package|quarters package','Prevent|prevent defense'],
+    F:['5-2|5 2|52|oklahoma|oklahoma 5 2','Big Nickel|big nickel package','Wide 9|wide nine','Under|under front','Over|over front','Tampa 2|tampa two'],
+    H:['Dollar|dollar package','6-1|6 1|61','5-3|5 3|53','Flex|flex defense','Umbrella|umbrella defense','Dime Lurk|lurk','Nickel 3-3|3 3 nickel','Double A Gap|double a gap mug|mug'] },
+    { fmt:'xo', fam:'xo', sim:{ miss:.12 } });
   W('m_halftime', 'Name a Super Bowl halftime show performer since 2000.', 'Headliners or featured guests, Super Bowls XXXIV–LX.', {
     K:['Beyoncé|beyonce','Rihanna','Justin Timberlake','Usher','Kendrick Lamar','Bad Bunny'],
     S:['Bruno Mars','Lady Gaga','Katy Perry','Shakira','Jennifer Lopez|j lo|jlo','The Weeknd','Prince','Eminem','Snoop Dogg','Dr. Dre|dr dre','Coldplay','Madonna','Janet Jackson'],
@@ -1200,6 +1274,11 @@ PROMPTS.push(
 {"id": "s_rookrec", "q": "Name a rookie with 1,000 receiving yards.", "sub": "Any rookie season from 2000 to today.", "kind": "person", "a": {"K": ["Mike Evans|Michael Evans", "Ja'Marr Chase"], "S": ["Justin Jefferson", "Amari Cooper", "Keenan Allen", "Odell Beckham"], "P": ["A.J. Brown|Arthur Brown", "A.J. Green|Adriel Green", "Anquan Boldin", "Jaylen Waddle", "Garrett Wilson", "Michael Thomas"], "F": ["Puka Nacua", "Kyle Pitts", "Malik Nabers", "Chris Olave", "Marques Colston", "Tetairoa McMillan"], "H": ["Brian Thomas Jr.", "Brock Bowers", "Ladd McConkey|Andrew McConkey", "Kelvin Benjamin", "Michael Clayton"]}, "cat": "player", "fmt": "season", "sim": {"miss": 0.16}, "sub2": "bank", "fam": "season", "gen": true},
 {"id": "s_int20", "q": "Name a QB who threw 20 interceptions in a season.", "sub": "Any season from 2000 to today. The other kind of milestone.", "kind": "person", "a": {"K": ["Peyton Manning", "Brett Favre", "Drew Brees"], "S": ["Philip Rivers", "Eli Manning|Elisha Manning", "Matthew Stafford|John Stafford", "Ben Roethlisberger|Benjamin Roethlisberger", "Carson Palmer", "Baker Mayfield"], "P": ["Joe Flacco|Joseph Flacco", "Jameis Winston", "Vinny Testaverde|Vincent Testaverde", "Andy Dalton|Andrew Dalton", "Jay Cutler", "Kerry Collins", "Trent Green", "Jake Plummer|Jason Plummer"], "F": ["Kurt Warner|Kurtis Warner", "Daunte Culpepper", "Ryan Fitzpatrick", "Geno Smith|Eugene Smith", "Brad Johnson|James Johnson", "Jon Kitna", "Mark Sanchez", "Rex Grossman"], "H": ["Marc Bulger", "Aaron Brooks", "Joey Harrington|John Harrington", "Tim Couch|Timothy Couch", "Josh Freeman|Joshua Freeman", "Quincy Carter|Lavonya Carter", "Sam Howell", "DeShone Kizer"]}, "cat": "player", "fmt": "season", "sim": {"miss": 0.18}, "sub2": "bank", "fam": "season", "gen": true},
 {"id": "s_dual", "q": "Name a player with 1,000 rushing AND 1,000 receiving yards in one season.", "sub": "All-time. Only a few have done it.", "kind": "person", "a": {"K": ["Christian McCaffrey"], "P": ["Roger Craig", "Marshall Faulk"]}, "cat": "player", "fmt": "season", "sim": {"miss": 0.35}, "sub2": "bank", "fam": "season", "gen": true},
+{"id": "l_rush", "q": "Name a player who led the NFL in rushing yards.", "sub": "Any season from 2000 to 2025.", "kind": "person", "a": {"K": ["LaDainian Tomlinson", "Adrian Peterson"], "S": ["Edgerrin James", "Derrick Henry", "Curtis Martin", "Christian McCaffrey"], "P": ["Ezekiel Elliott", "Saquon Barkley", "LeSean McCoy", "Josh Jacobs|Joshua Jacobs", "Shaun Alexander"], "F": ["Jonathan Taylor", "Ricky Williams|Errick Williams", "Jamal Lewis", "DeMarco Murray", "Chris Johnson|Christopher Johnson"], "H": ["Kareem Hunt", "James Cook", "Maurice Jones-Drew", "Priest Holmes|Anthony Holmes", "Arian Foster"]}, "cat": "player", "fmt": "leader", "sim": {"miss": 0.15}, "sub2": "bank", "fam": "leader", "gen": true},
+{"id": "l_rec", "q": "Name a player who led the NFL in receiving yards.", "sub": "Any season from 2000 to 2025.", "kind": "person", "a": {"K": ["Calvin Johnson", "Marvin Harrison"], "S": ["Andre Johnson", "Julio Jones|Quintorres Jones|Quintorris Jones", "Tyreek Hill", "Antonio Brown"], "P": ["Torry Holt", "Ja'Marr Chase", "Justin Jefferson", "Stefon Diggs", "Reggie Wayne|Reginald Wayne", "Steve Smith|Stevonne Smith"], "F": ["Chad Ochocinco|Chad Johnson", "Cooper Kupp", "T.Y. Hilton|Eugene Hilton", "Muhsin Muhammad", "Michael Thomas", "Jaxon Smith-Njigba"], "H": ["Joe Horn|Joseph Horn", "David Boston", "Brandon Lloyd", "Josh Gordon|Joshua Gordon"]}, "cat": "player", "fmt": "leader", "sim": {"miss": 0.22}, "sub2": "bank", "fam": "leader", "gen": true},
+{"id": "l_passtd", "q": "Name a QB who led the NFL in touchdown passes.", "sub": "Any season from 2000 to 2025.", "kind": "person", "a": {"K": ["Peyton Manning"], "S": ["Tom Brady|Thomas Brady", "Drew Brees", "Aaron Rodgers"], "P": ["Brett Favre", "Patrick Mahomes", "Philip Rivers", "Matthew Stafford|John Stafford"], "F": ["Russell Wilson", "Lamar Jackson", "Dak Prescott|Rayne Prescott", "Andrew Luck"], "H": ["Carson Palmer", "Joe Burrow|Joseph Burrow", "Kurt Warner|Kurtis Warner", "Daunte Culpepper"]}, "cat": "player", "fmt": "leader", "sim": {"miss": 0.15}, "sub2": "bank", "fam": "leader", "gen": true},
+{"id": "l_sacks", "q": "Name a player who led the NFL in sacks.", "sub": "Any season from 2000 to 2025.", "kind": "person", "a": {"K": ["Michael Strahan", "T.J. Watt|Trent Watt"], "S": ["DeMarcus Ware", "Jared Allen", "J.J. Watt|Justin Watt"], "P": ["Aaron Donald", "Jason Taylor", "Dwight Freeney", "Myles Garrett", "Justin Houston"], "F": ["Nick Bosa|Nicholas Bosa", "Chandler Jones", "Trey Hendrickson|Collins Hendrickson", "Robert Mathis", "Elvis Dumervil"], "H": ["La'Roi Glover", "Shaquil Barrett", "Vic Beasley|Victor Beasley", "Shawne Merriman", "Derrick Burgess"]}, "cat": "player", "fmt": "leader", "sim": {"miss": 0.3}, "sub2": "bank", "fam": "leader", "gen": true},
+{"id": "s_scrim2000", "q": "Name a player with 2,000 scrimmage yards in a season.", "sub": "Rushing plus receiving, any season from 2000 to today.", "kind": "person", "a": {"K": ["LaDainian Tomlinson", "Marshall Faulk"], "S": ["Edgerrin James", "Christian McCaffrey", "Adrian Peterson", "Derrick Henry", "Saquon Barkley"], "P": ["Frank Gore|Franklin Gore", "LeSean McCoy", "Tiki Barber|Atiim Barber", "Ezekiel Elliott", "Todd Gurley|Todd Gurley II Gurley", "Josh Jacobs|Joshua Jacobs", "Ahman Green"], "F": ["Larry Johnson", "Le'Veon Bell", "Jonathan Taylor", "Ricky Williams|Errick Williams", "Bijan Robinson", "Brian Westbrook", "Steven Jackson"], "H": ["Jamal Lewis", "DeMarco Murray", "Priest Holmes|Anthony Holmes", "Chris Johnson|Christopher Johnson", "Ray Rice|Raymell Rice", "Deuce McAllister|Dulymus McAllister", "Arian Foster", "David Johnson"]}, "cat": "player", "fmt": "season", "sim": {"miss": 0.18}, "sub2": "bank", "fam": "season", "gen": true},
 {"id": "g_pass500", "q": "Name a QB who threw for 500 yards in a game.", "sub": "Any game from 2000 to today, playoffs included.", "kind": "person", "a": {"K": ["Drew Brees"], "S": ["Tom Brady|Thomas Brady", "Ben Roethlisberger|Benjamin Roethlisberger", "Matt Ryan|Matthew Ryan"], "P": ["Philip Rivers", "Matthew Stafford|John Stafford", "Eli Manning|Elisha Manning", "Jared Goff"], "F": ["Dak Prescott|Rayne Prescott", "Kirk Cousins", "Joe Burrow|Joseph Burrow", "Derek Carr"], "H": ["Matt Schaub|Matthew Schaub", "Tony Romo|Antonio Romo", "Elvis Grbac"]}, "cat": "player", "fmt": "game", "sim": {"miss": 0.25}, "sub2": "bank", "fam": "game", "gen": true},
 {"id": "g_td6", "q": "Name a QB who threw 6 touchdown passes in a game.", "sub": "Any game from 2000 to today, playoffs included.", "kind": "person", "a": {"K": ["Peyton Manning"], "S": ["Tom Brady|Thomas Brady", "Drew Brees"], "P": ["Aaron Rodgers", "Brett Favre", "Ben Roethlisberger|Benjamin Roethlisberger", "Patrick Mahomes"], "F": ["Eli Manning|Elisha Manning", "Carson Palmer", "Tua Tagovailoa|Tuanigamanuolepola Tagovailoa", "Mitchell Trubisky"], "H": ["Ryan Fitzpatrick", "Nick Foles|Nicholas Foles", "Matt Flynn|Matthew Flynn"]}, "cat": "player", "fmt": "game", "sim": {"miss": 0.25}, "sub2": "bank", "fam": "game", "gen": true},
 {"id": "g_rush200", "q": "Who has run for 200 yards in a game?", "sub": "Any game from 2000 to today, playoffs included.", "kind": "person", "a": {"K": ["Adrian Peterson", "LaDainian Tomlinson", "Marshall Faulk", "Derrick Henry", "Edgerrin James"], "S": ["Curtis Martin", "Saquon Barkley", "Frank Gore|Franklin Gore", "Tiki Barber|Atiim Barber", "Jamaal Charles", "LeSean McCoy", "Jonathan Taylor", "Jamal Lewis", "Le'Veon Bell", "Shaun Alexander"], "P": ["Todd Gurley|Todd Gurley II Gurley", "Ricky Williams|Errick Williams", "Corey Dillon", "Josh Jacobs|Joshua Jacobs", "Ahman Green", "Matt Forte|Matthew Forte", "Larry Johnson", "Fred Taylor|Frederick Taylor", "Warrick Dunn", "DeMarco Murray", "Thomas Jones", "Clinton Portis", "Dalvin Cook", "Chris Johnson|Christopher Johnson", "Jahmyr Gibbs"], "F": ["James Cook", "Reggie Bush|Reginald Bush", "Michael Turner", "Leonard Fournette", "DeAngelo Williams", "De'Von Achane", "Ray Rice|Raymell Rice", "Charlie Garner|Charles Garner", "Jay Ajayi|Jonathan Ajayi", "Doug Martin|Douglas Martin", "Alfred Morris", "Jonathan Stewart", "Duce Staley", "Raheem Mostert|Dominique Mostert", "Willie Parker"], "H": ["Fred Jackson|Fredrick Jackson", "Arian Foster", "Ahmad Bradshaw", "Knowshon Moreno", "Ryan Grant", "Derrick Ward", "Rico Dowdle", "Chris Wells|Beanie Wells|Christopher Wells", "Rudi Johnson", "Mike Anderson|Michael Anderson", "Lamar Smith", "Isaiah Crowell", "Jerome Harrison", "Thomas Rawls", "Jonas Gray"]}, "cat": "player", "fmt": "game", "sim": {"miss": 0.15}, "sub2": "bank", "fam": "game", "gen": true},
@@ -1207,17 +1286,22 @@ PROMPTS.push(
 {"id": "g_sack4", "q": "Name a defender who had 4 sacks in a single game.", "sub": "Any game from 2000 to today, playoffs included.", "kind": "person", "a": {"K": ["Myles Garrett", "Aaron Donald", "Michael Strahan", "DeMarcus Ware"], "S": ["Jared Allen", "Khalil Mack", "T.J. Watt|Trent Watt", "Cameron Jordan", "Justin Houston", "Chandler Jones", "Calais Campbell", "Joey Porter"], "P": ["Kevin Williams", "Trey Hendrickson|Collins Hendrickson", "Willie McGinest|William McGinest", "Simeon Rice", "Mario Williams", "Maxx Crosby", "John Abraham", "Elvis Dumervil", "Ryan Kerrigan|Patrick Kerrigan", "Aldon Smith", "Aidan Hutchinson", "Cameron Wake|Derek Wake"], "F": ["Osi Umenyiora", "Leonard Little", "Justin Tuck", "Haason Reddick", "Andre Carter|Rubin Carter", "Kabeer Gbaja-Biamila|Mohammad-Kabeer Gbaja-Biamila", "Brian Orakpo", "Alex Brown", "Shaquil Barrett", "Marcus Jones", "Shaun Phillips", "Peter Boulware"], "H": ["Vonnie Holliday|Dimetry Holliday", "Will McDonald IV", "Antwan Odom", "Phillip Daniels", "Connor Barwin", "Bert Berry|Bertrand Berry", "Kamerion Wimbley", "Adrian Clayborn", "Chris Clemons|Christopher Clemons", "Greg Hardy|Gregory Hardy", "Darryl Tapp", "Tuli Tuipulotu|Tulikihelotu Tuipulotu", "Antwan Barnes"]}, "cat": "player", "fmt": "game", "sim": {"miss": 0.25}, "sub2": "bank", "fam": "game", "gen": true},
 {"id": "g_td4", "q": "Who has scored 4 touchdowns in one game?", "sub": "Rushing plus receiving, any game from 2000 to today.", "kind": "person", "a": {"K": ["LaDainian Tomlinson", "Marshall Faulk", "Randy Moss", "Terrell Owens"], "S": ["Christian McCaffrey", "Derrick Henry", "Travis Kelce", "Alvin Kamara", "Shaun Alexander", "Marshawn Lynch", "Todd Gurley|Todd Gurley II Gurley", "Aaron Jones", "Jamaal Charles"], "P": ["Fred Taylor|Frederick Taylor", "Jonathan Taylor", "Brian Westbrook", "Joe Mixon", "Steven Jackson", "Jamal Lewis", "Clinton Portis", "Larry Johnson", "DeAngelo Williams", "Jahmyr Gibbs", "Maurice Jones-Drew", "Reggie Bush|Reginald Bush", "Dalvin Cook"], "F": ["Leonard Fournette", "Willis McGahee", "Ronnie Brown", "Priest Holmes|Anthony Holmes", "De'Von Achane", "Darren McFadden", "Michael Turner", "Marvin Jones", "Joe Horn|Joseph Horn", "LeGarrette Blount", "Raheem Mostert|Dominique Mostert", "Kenyan Drake", "Doug Martin|Douglas Martin"], "H": ["Austin Ekeler", "Marcus Robinson", "Chase Claypool", "Danny Woodhead", "Gabe Davis|Gabriel Davis", "Joseph Addai", "Eric Decker", "Tevin Coleman", "Mike Anderson|Michael Anderson", "T.J. Duckett|Todd Duckett", "Derrick Blaylock", "Jonas Gray"]}, "cat": "player", "fmt": "game", "sim": {"miss": 0.15}, "sub2": "bank", "fam": "game", "gen": true},
 {"id": "g_fg60", "q": "Name a kicker who made a 60-yard field goal.", "sub": "All-time, any game. Tom Dempsey started it in 1970.", "kind": "person", "a": {"K": ["Tom Dempsey", "Brandon Aubrey", "Stephen Gostkowski"], "S": ["Greg Zuerlein|Gregory Zuerlein", "Matt Prater|Matthew Prater", "Harrison Butker", "Justin Tucker", "Sebastian Janikowski", "Jake Elliott|Jacob Elliott"], "P": ["Chris Boswell|Christopher Boswell", "Jason Myers", "Tyler Bass", "Evan McPherson", "Joey Slye|Joseph Slye", "Graham Gano", "Daniel Carlson", "Matt Bryant|Steven Bryant", "Brandon McManus"], "F": ["David Akers", "Wil Lutz|Will Lutz|William Lutz", "Ka'imi Fairbairn|John Fairbairn", "Jay Feely|Thomas Feely", "Chase McLaughlin", "Will Reichard|William Reichard", "Rob Bironas|James Bironas", "Brett Maher", "Dan Carpenter|Daniel Carpenter"], "H": ["Cam Little|Cameron Little", "Jason Elam", "Greg Joseph|Gregory Joseph", "Chad Ryland", "Chandler Catanzaro", "Blake Grupe", "Lucas Havrisik", "Tyler Loop|Steven Loop", "Morten Andersen", "Steve Cox"]}, "cat": "player", "fmt": "game", "sim": {"miss": 0.25}, "sub2": "bank", "fam": "game", "gen": true},
+{"id": "sb_tdscore", "q": "Name a player who scored a touchdown in a Super Bowl.", "sub": "Rushing, receiving or return, Super Bowls XXXV–LX.", "kind": "person", "a": {"K": ["Jerry Rice", "Ben Roethlisberger|Benjamin Roethlisberger", "Randy Moss", "Larry Fitzgerald", "Patrick Mahomes", "Travis Kelce"], "S": ["Christian McCaffrey", "Derrick Brooks", "Jalen Hurts", "Rob Gronkowski|Robert Gronkowski", "Hines Ward", "Antonio Brown", "DeAndre Hopkins", "Marshawn Lynch", "Ty Law|Taujan Law", "Devin Hester", "Frank Gore|Franklin Gore", "A.J. Brown|Arthur Brown", "Reggie Wayne|Reginald Wayne", "Odell Beckham"], "P": ["Steve Smith|Stevonne Smith", "Kurt Warner|Kurtis Warner", "Kyle Juszczyk", "Mike Vrabel|Michael Vrabel", "Plaxico Burress", "Julian Edelman", "Muhsin Muhammad", "Corey Dillon", "Cooper Kupp", "Brian Westbrook", "Anquan Boldin", "Jordy Nelson", "DeVonta Smith", "Jamal Lewis", "Demaryius Thomas", "Zach Ertz|Zachary Ertz", "Greg Jennings|Gregory Jennings", "Mike Wallace|Burnell Wallace", "James White", "Nick Foles|Nicholas Foles", "James Harrison", "Alshon Jeffery", "Michael Crabtree", "Tee Higgins|Tamaurice Higgins|Tamurice Higgins", "Mike Alstott|Michael Alstott", "Colin Kaepernick", "Danny Amendola|Daniel Amendola", "Deion Branch|Anthony Branch"], "F": ["Santonio Holmes", "Leonard Fournette", "Rhamondre Stevenson", "Jeremy Shockey", "Pierre Garcon", "Devonta Freeman", "Isiah Pacheco", "Keenan McCardell", "Xavier Worthy", "LeGarrette Blount", "Nick Bolton|Nicholas Bolton", "Percy Harvin|William Harvin", "Jonathan Stewart", "Antowain Smith", "Doug Baldwin|Douglas Baldwin", "Brandon LaFell", "Austin Hooper", "Cooper DeJean", "Nick Collins|Nicholas Collins", "Marquez Valdes-Scantling", "Sony Michel", "Mecole Hardman|Carey Hardman", "David Givens", "Rashard Mendenhall", "Jauan Jennings|Bennie Jennings", "Ricky Proehl|Richard Proehl", "Raheem Mostert|Dominique Mostert", "Laurence Maroney", "Kadarius Toney", "Ahmad Bradshaw"], "H": ["Pierre Thomas|Charles Thomas", "Chris Hogan|Christopher Hogan", "Corey Clement", "Skyy Moore", "Danny Woodhead", "David Patten", "Victor Cruz", "L.J. Smith|John Smith", "Willie Parker", "Malcolm Smith", "Joseph Addai", "Brandon Stokley", "Greg Lewis|Gregory Lewis", "Duane Starks", "Malik Jackson", "Uchenna Nwosu|Anon Nwosu", "Tevin Coleman", "Eric Johnson", "Jacoby Jones", "Mack Hollins|Mackenzie Hollins", "Dwight Smith", "Jerry Porter", "Jermaine Lewis", "DeShaun Foster", "Tracy Porter", "Damien Williams", "Robert Alford", "Jerramy Stevens", "Kelvin Hayden", "C.J. Anderson|Cortrelle Anderson", "Jermaine Kearse", "Dominic Rhodes", "AJ Barner", "Dennis Pitta", "Aaron Hernandez", "David Tyree", "Ben Patrick", "Chris Matthews|Christopher Matthews", "Ron Dixon|Ronald Dixon", "Gary Russell"]}, "cat": "player", "fmt": "sbhist", "sim": {"miss": 0.12}, "sub2": "bank", "fam": "sbhist", "gen": true},
+{"id": "sb_tdpass", "q": "Name a player who threw a touchdown pass in a Super Bowl.", "sub": "Super Bowls XXXV–LX. Trick plays count.", "kind": "person", "a": {"K": ["Tom Brady|Thomas Brady", "Peyton Manning"], "S": ["Drew Brees", "Aaron Rodgers", "Patrick Mahomes", "Ben Roethlisberger|Benjamin Roethlisberger", "Russell Wilson"], "P": ["Matt Ryan|Matthew Ryan", "Matthew Stafford|John Stafford", "Eli Manning|Elisha Manning", "Donovan McNabb", "Jalen Hurts", "Joe Burrow|Joseph Burrow", "Joe Flacco|Joseph Flacco", "Rich Gannon|Richard Gannon"], "F": ["Kurt Warner|Kurtis Warner", "Sam Darnold", "Matt Hasselbeck|Matthew Hasselbeck", "Drake Maye", "Brock Purdy", "Joe Mixon", "Jimmy Garoppolo|James Garoppolo", "Brad Johnson|James Johnson"], "H": ["Trent Dilfer", "Nick Foles|Nicholas Foles", "Colin Kaepernick", "Rex Grossman", "Antwaan Randle El|Randle El", "Jake Delhomme", "Jauan Jennings|Bennie Jennings", "Trey Burton|Lawrence Burton"]}, "cat": "player", "fmt": "sbhist", "sim": {"miss": 0.08}, "sub2": "bank", "fam": "sbhist", "gen": true},
 {"id": "c_pass50k", "q": "Name a quarterback with 50,000 career passing yards.", "sub": "Regular season, all-time.", "kind": "person", "a": {"K": ["Tom Brady"], "S": ["Peyton Manning", "Brett Favre"], "P": ["Drew Brees", "Aaron Rodgers", "Dan Marino"], "F": ["John Elway", "Eli Manning", "Matthew Stafford"], "H": ["Ben Roethlisberger", "Philip Rivers", "Matt Ryan"]}, "cat": "player", "fmt": "career", "sim": {"miss": 0.12}, "sub2": "bank", "fam": "career", "gen": true},
 {"id": "c_pass400td", "q": "Name a quarterback with 400 career touchdown passes.", "sub": "Regular season, all-time.", "kind": "person", "a": {"K": ["Tom Brady"], "S": ["Peyton Manning", "Brett Favre"], "P": ["Drew Brees", "Aaron Rodgers"], "F": ["Dan Marino", "Matthew Stafford|John Stafford"], "H": ["Ben Roethlisberger", "Philip Rivers"]}, "cat": "player", "fmt": "career", "sim": {"miss": 0.12}, "sub2": "bank", "fam": "career", "gen": true},
 {"id": "c_rec100td", "q": "Name a player with 100 career receiving touchdowns.", "sub": "Regular season, all-time.", "kind": "person", "a": {"K": ["Jerry Rice"], "S": ["Randy Moss", "Terrell Owens"], "P": ["Larry Fitzgerald", "Marvin Harrison", "Tony Gonzalez"], "F": ["Cris Carter", "Davante Adams", "Antonio Gates"], "H": ["Mike Evans|Michael Evans", "Tim Brown", "Steve Largent"]}, "cat": "player", "fmt": "career", "sim": {"miss": 0.12}, "sub2": "bank", "fam": "career", "gen": true},
 {"id": "c_rush100td", "q": "Name a running back with 100 career rushing touchdowns.", "sub": "Regular season, all-time.", "kind": "person", "a": {"K": ["Emmitt Smith"], "S": ["Walter Payton", "LaDainian Tomlinson"], "P": ["Adrian Peterson", "Jim Brown"], "F": ["Marshall Faulk", "Marcus Allen"], "H": ["Derrick Henry", "John Riggins", "Shaun Alexander"]}, "cat": "player", "fmt": "career", "sim": {"miss": 0.12}, "sub2": "bank", "fam": "career", "gen": true},
 {"id": "c_rec15k", "q": "Name a player with 15,000 career receiving yards.", "sub": "Regular season, all-time.", "kind": "person", "a": {"K": ["Jerry Rice"], "S": ["Randy Moss"], "P": ["Larry Fitzgerald", "Terrell Owens"], "F": ["Tony Gonzalez", "Isaac Bruce"]}, "cat": "player", "fmt": "career", "sim": {"miss": 0.12}, "sub2": "bank", "fam": "career", "gen": true},
+{"id": "c_rec1000", "q": "Name a player with 1,000 career catches.", "sub": "Regular season, all-time.", "kind": "person", "a": {"K": ["Jerry Rice"], "S": ["Larry Fitzgerald", "Tony Gonzalez", "Terrell Owens"], "P": ["Marvin Harrison", "Cris Carter", "Andre Johnson", "Davante Adams"], "F": ["Travis Kelce", "Tim Brown", "Hines Ward", "DeAndre Hopkins"], "H": ["Jason Witten|Christopher Witten", "Keenan Allen", "Reggie Wayne|Reginald Wayne", "Steve Smith|Stevonne Smith", "Anquan Boldin"]}, "cat": "player", "fmt": "career", "sim": {"miss": 0.12}, "sub2": "bank", "fam": "career", "gen": true},
 {"id": "d_qb1st", "q": "Name a quarterback taken in the first round since 2010.", "sub": "Any first-round QB, 2010–2026 drafts.", "kind": "person", "a": {"K": ["Patrick Mahomes", "Cam Newton|Cameron Newton", "Josh Allen|Joshua Allen", "Lamar Jackson"], "S": ["Jared Goff", "Justin Herbert", "Andrew Luck", "Joe Burrow|Joseph Burrow", "Baker Mayfield", "Kyler Murray", "Ryan Tannehill", "Trevor Lawrence|William Lawrence", "Jameis Winston"], "P": ["Carson Wentz", "Sam Darnold", "Tua Tagovailoa|Tuanigamanuolepola Tagovailoa", "C.J. Stroud|Coleridge Stroud", "Drake Maye", "Mitchell Trubisky", "Jayden Daniels", "Marcus Mariota", "Caleb Williams", "Jordan Love", "Daniel Jones", "Deshaun Watson|Derrick Watson", "Justin Fields"], "F": ["Bryce Young", "Mac Jones|Michael Jones", "Blake Bortles|Robby Bortles", "Sam Bradford|Samuel Bradford", "Teddy Bridgewater|Theodore Bridgewater", "Robert Griffin III|Robert Griffin", "Blaine Gabbert", "Kenny Pickett|Kenneth Pickett", "Zach Wilson|Zachary Wilson", "Anthony Richardson", "Trey Lance", "Michael Penix|Michael Penix Jr.", "Cam Ward|Cameron Ward"], "H": ["Bo Nix", "J.J. McCarthy|Jonathan McCarthy", "Fernando Mendoza", "Jaxson Dart", "Tim Tebow|Timothy Tebow", "Brandon Weeden", "Christian Ponder", "Johnny Manziel|Johnathan Manziel", "Jake Locker|Jacob Locker", "Josh Rosen|Joshua Rosen", "EJ Manuel|E.J. Manuel|Erik Manuel", "Ty Simpson|Tyler Simpson", "Dwayne Haskins", "Paxton Lynch"]}, "cat": "player", "fmt": "draftx", "sim": {"miss": 0.06}, "sub2": "bank", "fam": "draftx", "gen": true},
 {"id": "d_top3", "q": "Name a top-3 pick from the last decade.", "sub": "Picks 1–3 in the 2016–2026 drafts.", "kind": "person", "a": {"K": ["Jared Goff", "Myles Garrett", "Joe Burrow|Joseph Burrow"], "S": ["Baker Mayfield", "Kyler Murray", "Trevor Lawrence|William Lawrence", "Saquon Barkley", "Carson Wentz", "Caleb Williams"], "P": ["Sam Darnold", "C.J. Stroud|Coleridge Stroud", "Drake Maye", "Mitchell Trubisky", "Bryce Young", "Jayden Daniels", "Joey Bosa|Joseph Bosa", "Nick Bosa|Nicholas Bosa"], "F": ["Quinnen Williams", "Aidan Hutchinson", "Derek Stingley Jr.", "Will Anderson|Will Anderson Jr.|William Anderson", "Cam Ward|Cameron Ward", "Travon Walker|Yury Walker", "Fernando Mendoza", "Zach Wilson|Zachary Wilson"], "H": ["Travis Hunter", "Trey Lance", "Chase Young", "Solomon Thomas", "Abdul Carter", "Jeremiyah Love", "Jeff Okudah|Jeffrey Okudah", "David Bailey"]}, "cat": "player", "fmt": "draftx", "sim": {"miss": 0.1}, "sub2": "bank", "fam": "draftx", "gen": true},
 {"id": "d_irrelevant", "q": "Name a \"Mr. Irrelevant\" — the last pick of the draft.", "sub": "Any draft from 2000 to 2026.", "kind": "person", "a": {"K": ["Brock Purdy", "Ryan Succop"], "S": ["Trey Quinn|David Quinn", "Mike Green|Michael Green", "Tae Crowder|Dequartavious Crowder|Dequartavous Crowder", "Grant Stuard", "Desjuan Johnson"], "P": ["Chad Kelly", "Jaylen Key", "Kobee Minor", "Kalan Reed", "Red Murdock|Khalil Murdock", "Caleb Wilson", "David Vobora"], "F": ["Chandler Harnish", "Justice Cunningham", "Lonnie Ballentine", "Gerald Christian", "Cheta Ozougwu|Chetachi Ozougwu", "Tim Toone|Timonthy Toone|Timothy Toone", "Ramzee Robinson"], "H": ["Tevita Ofahengaue", "Ahmad Miller", "Ryan Hoag", "Andre Sommersell", "Andy Stokes", "Kevin McMahan"]}, "cat": "player", "fmt": "draftx", "sim": {"miss": 0.45}, "sub2": "bank", "fam": "draftx", "gen": true},
 {"id": "d_r7pb", "q": "Name a seventh-round pick who made a Pro Bowl.", "sub": "Any draft since 1980.", "kind": "person", "a": {"K": ["Shannon Sharpe", "Donald Driver", "Brock Purdy", "Matt Cassel|Matthew Cassel"], "S": ["Jordan Poyer", "Gary Anderson", "Brett Keisel", "Jamal Anderson", "Pat McAfee|Patrick McAfee", "Kevin Ross", "Brock Marion", "Gus Frerotte|Gustave Frerotte"], "P": ["Cortland Finnegan", "Leon Lett", "Michael McCrary", "Charles Leno Jr.|Charles Leno|Charles, Jr. Leno", "Jay Ratliff|Jeremiah Ratliff", "Logan Cooke", "Steve Jordan|Steven Jordan", "David Little", "Eddie Murray|Edward Murray", "T.J. Houshmandzadeh|Touraj Houshmandzadeh", "Josh Brown|Joshua Brown", "Fuad Reveiz"], "F": ["Johnny Johnson", "Eric Martin", "Kurt Coleman|Kurtis Coleman", "Justin Forsett", "Carl Lee", "Zaire Franklin", "Tom Nalen|Thomas Nalen", "Dan Saleaumua|Raymond Saleaumua", "Marion Butts", "Dave Moore|David Moore", "Ben Skowronek|Bennett Skowronek", "Clark Harris"], "H": ["Byron Chamberlain", "Adam Timmerman", "Trent Brown|Trenton Brown", "Scott Wells", "Brian Jennings", "Brandon Fields", "Marc Mariani", "Sean Morey", "Craig James", "Bo Jackson"]}, "cat": "player", "fmt": "draftx", "sim": {"miss": 0.4}, "sub2": "bank", "fam": "draftx", "gen": true},
 {"id": "d_kp", "q": "Name a kicker or punter drafted in the first three rounds.", "sub": "Any draft since 1980.", "kind": "person", "a": {"K": ["Jason Hanson", "Sebastian Janikowski"], "S": ["Jason Elam", "Bryan Anger", "Dustin Colquitt", "Nate Kaeding", "Jake Moody"], "P": ["Rohn Stark", "Brad Maynard|Bradley Maynard", "Doug Brien|Douglas Brien", "Chip Lohmiller|John Lohmiller", "Chris Gardocki|Christopher Gardocki", "Todd Sauerbrun", "Mike Nugent|Michael Nugent"], "F": ["Jeff Jaeger", "Greg Montgomery|Gregory Montgomery", "Martin Gramatica", "Dale Hatcher|Roger Hatcher", "Brett Conway", "Roberto Aguayo", "Harold Alexander"], "H": ["B.J. Sander|William Sander", "Jim Miller", "Ray Stachowicz", "Steve McLaughlin|Steven McLaughlin", "John Lee", "Ed Bunn"]}, "cat": "player", "fmt": "draftx", "sim": {"miss": 0.45}, "sub2": "bank", "fam": "draftx", "gen": true},
 {"id": "d_wr1st", "q": "Name a wide receiver taken in the first round since 2015.", "sub": "Any first-round WR, 2015–2026 drafts.", "kind": "person", "a": {"K": ["Ja'Marr Chase", "Justin Jefferson", "CeeDee Lamb|Cedarian Lamb", "Amari Cooper"], "S": ["Marvin Harrison Jr.", "D.J. Moore|Denniston Moore", "DeVonta Smith", "Jaylen Waddle", "Drake London", "Garrett Wilson", "Jaxon Smith-Njigba", "Zay Flowers|Xavien Flowers", "Brandon Aiyuk"], "P": ["Malik Nabers", "Mike Williams|Michael Williams", "Rome Odunze", "Chris Olave", "Tetairoa McMillan", "Travis Hunter", "Brian Thomas|Brian Thomas Jr.", "Calvin Ridley", "Nelson Agholor", "Xavier Worthy", "Jerry Jeudy", "Corey Davis", "Jameson Williams", "DeVante Parker"], "F": ["Jordan Addison", "Kevin White", "Quentin Johnston", "Jalen Reagor", "Jahan Dotson", "Kadarius Toney", "Ricky Pearsall", "Emeka Egbuka", "Matthew Golden", "Phillip Dorsett", "Rashod Bateman", "John Ross", "N'Keal Harry", "Treylon Burks"], "H": ["Breshad Perriman", "Will Fuller|William Fuller", "Laquon Treadwell", "Marquise Brown", "Corey Coleman", "Carnell Tate", "Jordyn Tyson", "Xavier Legette|Anthony Legette", "Josh Doctson|Joshua Doctson", "Henry Ruggs III|Henry Ruggs|Henry III Ruggs", "Makai Lemon", "KC Concepcion|Kevin Concepcion", "Omar Cooper|Omar Cooper Jr."]}, "cat": "player", "fmt": "draftx", "sim": {"miss": 0.08}, "sub2": "bank", "fam": "draftx", "gen": true},
+{"id": "d_qbno1", "q": "Name a quarterback taken No. 1 overall since 1990.", "sub": "Any No. 1 pick at QB, 1990–2026 drafts.", "kind": "person", "a": {"K": ["Peyton Manning", "Matthew Stafford|John Stafford"], "S": ["Cam Newton|Cameron Newton", "Eli Manning|Elisha Manning", "Jared Goff", "Michael Vick|Mike Vick"], "P": ["Alex Smith|Alexander Smith", "Andrew Luck", "Carson Palmer", "Drew Bledsoe", "Joe Burrow|Joseph Burrow", "Baker Mayfield"], "F": ["Kyler Murray", "Trevor Lawrence|William Lawrence", "Jameis Winston", "Caleb Williams", "Bryce Young", "Sam Bradford|Samuel Bradford"], "H": ["David Carr", "Jeff George|Jeffrey George", "Cam Ward|Cameron Ward", "Fernando Mendoza", "Tim Couch|Timothy Couch", "JaMarcus Russell"]}, "cat": "player", "fmt": "draftx", "sim": {"miss": 0.1}, "sub2": "bank", "fam": "draftx", "gen": true},
+{"id": "d_rb1st", "q": "Name a running back taken in the first round since 2015.", "sub": "Any first-round RB, 2015–2026 drafts.", "kind": "person", "a": {"K": ["Christian McCaffrey"], "S": ["Saquon Barkley", "Ezekiel Elliott", "Todd Gurley|Todd Gurley II Gurley"], "P": ["Josh Jacobs|Joshua Jacobs", "Bijan Robinson", "Jahmyr Gibbs", "Najee Harris"], "F": ["Melvin Gordon", "Leonard Fournette", "Ashton Jeanty", "Clyde Edwards-Helaire"], "H": ["Travis Etienne", "Sony Michel", "Rashaad Penny", "Omarion Hampton", "Jeremiyah Love", "Jadarian Price"]}, "cat": "player", "fmt": "draftx", "sim": {"miss": 0.12}, "sub2": "bank", "fam": "draftx", "gen": true},
 {"id": "qb_cle", "q": "Name a QB who has started a game for the Browns since 1999.", "sub": "The famous jersey list. Every starter since the Browns returned.", "kind": "person", "a": {"K": ["Baker Mayfield", "Tim Couch|Timothy Couch", "Deshaun Watson|Derrick Watson"], "S": ["Joe Flacco|Joseph Flacco", "Derek Anderson", "Jameis Winston", "Trent Dilfer", "Colt McCoy|Daniel McCoy", "Josh McCown|Joshua McCown", "Jacoby Brissett"], "P": ["Brian Hoyer", "Jeff Garcia", "Brandon Weeden", "Robert Griffin", "Tyrod Taylor", "Jason Campbell", "Charlie Frye|Charles Frye", "Brady Quinn|Brayden Quinn", "Shedeur Sanders", "Johnny Manziel|Johnathan Manziel"], "F": ["Jake Delhomme", "Case Keenum|Casey Keenum", "DeShone Kizer", "Nick Mullens|Nicholas Mullens", "Ty Detmer", "Kelly Holcomb|Bryan Holcomb", "Bailey Zappe", "Dillon Gabriel", "Seneca Wallace", "Ken Dorsey|Kenneth Dorsey"], "H": ["Doug Pederson|Douglas Pederson", "Dorian Thompson-Robinson", "Cody Kessler", "Bruce Gradkowski", "Luke McCown", "Jeff Driskel|Jeffrey Driskel", "Phillip Walker|P.J. Walker", "Austin Davis", "Kevin Hogan", "Thaddeus Lewis|Thad Lewis", "Connor Shaw", "Spergon Wynn"]}, "cat": "player", "fmt": "qbstart", "sim": {"miss": 0.1}, "sub2": "bank", "fam": "qbstart", "gen": true},
 {"id": "qb_chi", "q": "Name a QB who has started a game for the Bears since 2000.", "sub": "Every starter, 2000 to today.", "kind": "person", "a": {"K": ["Jay Cutler", "Caleb Williams"], "S": ["Justin Fields", "Kyle Orton", "Rex Grossman", "Mitch Trubisky", "Andy Dalton|Andrew Dalton"], "P": ["Jim Miller", "Kordell Stewart", "Chris Chandler|Christopher Chandler", "Nick Foles|Nicholas Foles", "Josh McCown|Joshua McCown", "Brian Hoyer", "Matt Barkley|Matthew Barkley", "Cade McNown"], "F": ["Case Keenum|Casey Keenum", "Jason Campbell", "Tyson Bagent", "Brian Griese", "Chase Daniel|William Daniel", "Shane Matthews|Michael Matthews", "Chad Hutchinson", "Mike Glennon|Michael Glennon"], "H": ["Todd Collins", "Trevor Siemian", "Nathan Peterman", "Caleb Hanie", "Craig Krenzel", "Jonathan Quinn", "Jimmy Clausen|James Clausen", "Henry Burris"]}, "cat": "player", "fmt": "qbstart", "sim": {"miss": 0.12}, "sub2": "bank", "fam": "qbstart", "gen": true},
 {"id": "qb_nyj", "q": "Name a QB who has started a game for the Jets since 2000.", "sub": "Every starter, 2000 to today.", "kind": "person", "a": {"K": ["Aaron Rodgers", "Brett Favre"], "S": ["Mark Sanchez", "Chad Pennington|James Pennington", "Vinny Testaverde|Vincent Testaverde", "Sam Darnold"], "P": ["Geno Smith|Eugene Smith", "Ryan Fitzpatrick", "Zach Wilson|Zachary Wilson", "Michael Vick|Mike Vick", "Joe Flacco|Joseph Flacco", "Josh McCown|Joshua McCown"], "F": ["Justin Fields", "Tyrod Taylor", "Mark Brunell", "Mike White|James White", "Quincy Carter|Lavonya Carter", "Kellen Clemens"], "H": ["Tim Boyle|Timothy Boyle", "Trevor Siemian", "Brooks Bollinger", "Bryce Petty", "Brady Cook", "Luke Falk", "Ray Lucas", "Greg McElroy|Gregory McElroy"]}, "cat": "player", "fmt": "qbstart", "sim": {"miss": 0.12}, "sub2": "bank", "fam": "qbstart", "gen": true},
@@ -1230,11 +1314,16 @@ PROMPTS.push(
 {"id": "pw_manning", "q": "Name a team Peyton Manning beat in the playoffs.", "sub": "Colts or Broncos, any postseason game he won.", "kind": "team", "a": {"K": ["patriots"], "S": ["chiefs", "broncos"], "P": ["ravens", "steelers"], "F": ["bears", "jets"], "H": ["chargers", "panthers"]}, "cat": "team", "fmt": "playoffwins", "sim": {"miss": 0.12}, "sub2": "bank", "fam": "playoffwins", "gen": true, "nopeAllTeams": true},
 {"id": "pw_rodgers", "q": "Name a team Aaron Rodgers beat in the playoffs.", "sub": "Any postseason win, Packers era included.", "kind": "team", "a": {"K": ["cowboys"], "S": ["eagles", "steelers"], "P": ["bears", "giants"], "F": ["seahawks", "vikings"], "H": ["rams", "commanders", "falcons"]}, "cat": "team", "fmt": "playoffwins", "sim": {"miss": 0.15}, "sub2": "bank", "fam": "playoffwins", "gen": true, "nopeAllTeams": true},
 {"id": "t_sb2010", "q": "Name a team that has played in a Super Bowl since 2010.", "sub": "Super Bowls XLIV–LX.", "kind": "team", "a": {"K": ["patriots"], "S": ["chiefs", "niners", "eagles"], "P": ["seahawks", "broncos", "rams", "packers"], "F": ["steelers", "giants", "ravens", "colts"], "H": ["saints", "buccaneers", "bengals", "panthers", "falcons"]}, "cat": "team", "fmt": "sbteam", "sim": {"miss": 0.04}, "sub2": "bank", "fam": "sbteam", "gen": true, "nopeAllTeams": true},
+{"id": "pw_allen", "q": "Name a team Josh Allen has beaten in the playoffs.", "sub": "Any postseason win, 2018 to today.", "kind": "team", "a": {"K": ["ravens"], "S": ["patriots"], "P": ["steelers", "dolphins"], "F": ["broncos", "colts"], "H": ["jaguars"]}, "cat": "team", "fmt": "playoffwins", "sim": {"miss": 0.15}, "sub2": "bank", "fam": "playoffwins", "gen": true, "nopeAllTeams": true},
+{"id": "t_midcoach", "q": "Name a team that changed head coaches in the middle of a season.", "sub": "Any season from 2010 to 2025, interim coaches included.", "kind": "team", "a": {"K": ["raiders", "broncos"], "S": ["jaguars", "cowboys", "chiefs"], "P": ["niners", "eagles", "packers", "texans"], "F": ["giants", "panthers", "dolphins", "bills", "vikings"], "H": ["saints", "lions", "colts", "browns", "commanders", "chargers", "falcons"]}, "cat": "team", "fmt": "t_midcoach", "sim": {"miss": 0.15}, "sub2": "bank", "fam": "t_midcoach", "gen": true, "nopeAllTeams": true},
+{"id": "t_rushlead", "q": "Name a team that has had the NFL’s rushing leader since 2000.", "sub": "Whoever led the league in rushing yards, 2000–2025.", "kind": "team", "a": {"K": ["cowboys"], "S": ["vikings", "chiefs", "titans"], "P": ["eagles", "colts", "chargers", "niners"], "F": ["dolphins", "ravens", "seahawks", "raiders"], "H": ["bills", "jets", "texans", "jaguars"]}, "cat": "team", "fmt": "t_rushlead", "sim": {"miss": 0.25}, "sub2": "bank", "fam": "t_rushlead", "gen": true, "nopeAllTeams": true},
+{"id": "t_pass5k", "q": "Name a team that has had a 5,000-yard passer.", "sub": "All-time, regular season. Dan Marino’s 1984 Dolphins count.", "kind": "team", "a": {"K": ["saints"], "S": ["chiefs", "buccaneers"], "P": ["patriots", "steelers"], "F": ["dolphins", "broncos"], "H": ["lions", "chargers"]}, "cat": "team", "fmt": "t_pass5k", "sim": {"miss": 0.2}, "sub2": "bank", "fam": "t_pass5k", "gen": true, "nopeAllTeams": true},
 {"id": "t_po2025", "q": "Name a team that made the playoffs in the 2025 season.", "sub": "All 14 count.", "kind": "team", "a": {"K": ["patriots"], "S": ["seahawks", "rams"], "P": ["niners", "bears", "bills", "broncos"], "F": ["packers", "eagles", "steelers", "texans"], "H": ["chargers", "panthers", "jaguars"]}, "cat": "team", "fmt": "t_po2025", "sim": {"miss": 0.08}, "sub2": "bank", "fam": "t_po2025", "gen": true, "nopeAllTeams": true},
 {"id": "t_thanks", "q": "Name a team that has played on Thanksgiving since 2000.", "sub": "Home or away, any Thanksgiving Day game.", "kind": "team", "a": {"K": ["cowboys", "lions"], "S": ["packers", "bears", "patriots"], "P": ["chiefs", "eagles", "commanders", "giants"], "F": ["niners", "broncos", "dolphins", "steelers", "bills"], "H": ["vikings", "seahawks", "raiders", "saints", "ravens", "colts", "jets", "falcons", "bengals", "buccaneers", "texans", "chargers", "titans", "cardinals", "panthers"]}, "cat": "team", "fmt": "t_thanks", "sim": {"miss": 0.04}, "sub2": "bank", "fam": "t_thanks", "gen": true, "nopeAllTeams": true},
 {"id": "t_2wins", "q": "Name a team that won 2 or fewer games in a season since 2000.", "sub": "Full seasons, 2000–2025.", "kind": "team", "a": {"K": ["lions"], "S": ["rams", "chiefs", "panthers"], "P": ["niners", "bengals", "browns", "texans"], "F": ["jaguars", "raiders", "dolphins", "colts"], "H": ["jets", "chargers", "buccaneers", "titans"]}, "cat": "team", "fmt": "t_2wins", "sim": {"miss": 0.1}, "sub2": "bank", "fam": "t_2wins", "gen": true, "nopeAllTeams": true},
 {"id": "t_15wins", "q": "Name a team that has won 15 games in a season.", "sub": "All-time, regular season.", "kind": "team", "a": {"K": ["patriots"], "S": ["chiefs", "steelers"], "P": ["packers", "niners"], "F": ["bears", "lions"], "H": ["vikings", "panthers"]}, "cat": "team", "fmt": "t_15wins", "sim": {"miss": 0.15}, "sub2": "bank", "fam": "t_15wins", "gen": true, "nopeAllTeams": true},
 {"id": "t_no1", "q": "Name a team that has had the No. 1 overall pick since 2000.", "sub": "Any draft, 2000–2026.", "kind": "team", "a": {"K": ["browns"], "S": ["texans", "raiders", "rams"], "P": ["bengals", "panthers", "chiefs", "niners"], "F": ["jaguars", "bears", "dolphins", "lions"], "H": ["colts", "chargers", "buccaneers", "falcons", "cardinals", "titans"]}, "cat": "team", "fmt": "t_no1", "sim": {"miss": 0.1}, "sub2": "bank", "fam": "t_no1", "gen": true, "nopeAllTeams": true},
+{"id": "co_2025", "q": "Name a head coach from the 2025 season.", "sub": "Anyone who coached a game in 2025, interims included.", "kind": "person", "a": {"K": ["Mike Vrabel", "Sean McVay", "Sean Payton"], "S": ["Kyle Shanahan", "Jim Harbaugh", "Mike Tomlin", "Andy Reid", "Pete Carroll"], "P": ["Dan Campbell", "John Harbaugh", "Mike Macdonald", "DeMeco Ryans", "Sean McDermott", "Ben Johnson", "Nick Sirianni", "Liam Coen"], "F": ["Dave Canales", "Matt LaFleur", "Brian Schottenheimer", "Raheem Morris", "Todd Bowles", "Kevin Stefanski", "Zac Taylor", "Shane Steichen"], "H": ["Mike McDaniel", "Kellen Moore", "Jonathan Gannon", "Aaron Glenn", "Dan Quinn", "Brian Daboll", "Brian Callahan", "Kevin O'Connell"]}, "cat": "misc", "fmt": "coach", "sim": {"miss": 0.06}, "sub2": "bank", "fam": "coach", "gen": true},
 {"id": "x_dalphi", "q": "Name a player who played for both the Cowboys and the Eagles.", "sub": "Any seasons, any era. Every player counts.", "kind": "person", "a": {"K": ["Terrell Owens", "Mike Ditka|Michael Ditka", "Herschel Walker", "Andy Dalton|Andrew Dalton", "DeMarco Murray", "Harold Carmichael|Lee Carmichael"], "S": ["Randall Cunningham", "Tommy McDonald|Thomas McDonald", "Robert Quinn", "Mark Sanchez", "Miles Sanders", "Miles Austin", "Michael Bennett", "Rodney Peete", "Orlando Scandrick", "Corey Clement", "Sam Howell", "Chris Warren|Christopher Warren", "Joe Milton III", "Jason Peters"], "P": ["Lee Roy Caffey|Lee Caffey", "Dennis Morgan", "Kelvin Martin", "Dick Bielski|Richard Bielski", "Robert Lavette", "Ernie Sims|Ernest Sims", "Sam Baker|Loris Baker", "Eddie Murray|Edward Murray", "Walt Kowalczyk|Walter Kowalczyk", "Junior Tautalatasi|Taivale Tautalatasi", "Linval Joseph", "Darrin Smith", "Merrill Douglas", "Cyril Pinder", "Mat McBriar|Mathew McBriar", "Steve Folsom|Steven Folsom", "John Meyers", "Garry Cobb", "Rashaan Evans", "Jimmy Harris|James Harris", "Fred Whittingham", "Jerry Norton", "Luis Zendejas", "Parris Campbell"], "F": ["Will Grier", "Jaydon Blue", "Mike Clark|Michael Clark", "Deontay Burnett", "Nolan Carroll", "Lynn Hoyem", "Andrew Sendejo", "Allen Rossum", "John Niland", "Mark Higgs", "Cameron Erving", "Frank Cornish", "Jimmie Jones", "KJ Henry", "Danny Stubbs|Daniel Stubbs", "Cedric Thornton", "Justin Rogers", "Albert Huggins", "Reggie Davis|Reginald Davis", "Keith Adams", "Matt Hennessy|Matthew Hennessy", "Steve Hendrickson|Steven Hendrickson", "Justin Hamilton", "D.J. White|David White"], "H": ["John Roper", "Brian Baldinger", "Oliver Ross", "Anthony Rush", "Aziz Shittu|Abdulaziz Shittu", "Rashad Smith", "Jack Anderson", "Roger Ruzek", "Clifton Geathers", "Broderick Thompson", "Braeden Daniels", "Jason Williams", "Trevor Keegan", "George Hegamin", "Daryle Smith", "Chris Boniol|Christopher Boniol", "Martin Rucker", "Quinton Caver", "M.J. McFarland", "Derrick Frazier", "Jeremy Clark", "Jose Cortez", "Louis Cheek", "Rod Harris|Roderick Harris", "Greg Tremble|Gregory Tremble", "Chris Fontenot|Christopher Fontenot"]}, "cat": "player", "fmt": "rivalry", "sim": {"miss": 0.25}, "sub2": "bank", "fam": "rivalry", "gen": true, "pool": {"fr2": "iz"}, "poolLabel": "player who played for both the Cowboys and the Eagles"},
 {"id": "x_gbchi", "q": "Name a player who played for both the Packers and the Bears.", "sub": "Any seasons, any era. Every player counts.", "kind": "person", "a": {"K": ["Julius Peppers", "Jim McMahon|James McMahon", "Jimmy Graham", "Steve McMichael", "Cedric Benson", "Marcedes Lewis"], "S": ["Edgar Bennett", "Don Perkins|Donald Perkins", "Ha Ha Clinton-Dix|Ha'Sean Clinton-Dix", "Josh Sitton", "Al Culver|Alvin Culver", "Zeke Bratkowski|Edmund Bratkowski", "Rashaan Salaam", "Jack Concannon|John Concannon", "Bobby Douglass|Robert Douglass", "Rick Mirer", "Bob Jeter|Robert Jeter", "Martellus Bennett", "Knile Davis", "Samori Toure"], "P": ["Dick Gordon|Richard Gordon", "Robert Tonyan", "Walt Kiesling|Walter Kiesling", "Beattie Feathers|William Feathers", "Tim Boyle|Timothy Boyle", "Ed Cody|Edward Cody", "Lee Roy Caffey|Lee Caffey", "Keith Traylor|Byron Traylor", "Charlie Mitchell|Charles Mitchell", "Wally Dreyer|Walter Dreyer", "Bobby Jack Floyd|Bobby Floyd", "Pete Van Valkenburg|Peter Van Valkenburg", "Cliff Taylor|Clifton Taylor", "Hunter Hillenmeyer", "Joe Thomas", "Adrian Amos", "Raymont Harris", "Lou Gordon|Louis Gordon", "Tom Hearden|Thomas Hearden", "Charlie Wade|Charles Wade", "Paul Lipscomb", "Jim Morrissey|James Morrissey", "Gary Barnes", "Ray Bray|Raymond Bray", "Wayland Becker", "J.R. Boone", "Jim Grabowski|James Grabowski", "Perry Williams"], "F": ["Jim Keane|James Keane", "Duke Hanny|Frank Hanny", "Connie Mack Berry|Connie Berry", "Tillie Voss|Walter Voss", "Mike Tomczak|Michael Tomczak", "John Thierry", "Hurles Scales", "Equanimeous St. Brown", "Gust Zarnas|Gustave Zarnas", "Harper Davis|Julius Davis", "Marty Amsler|Charles Amsler", "Keshon Johnson", "David Moore", "Al Romine|Alton Romine", "Dave Simmons|David Simmons", "Ojay Larson|Frederic Larson", "Aldo Forte", "Ed Ecker|Enrique Ecker", "Wash Serini|William Serini", "Ken Gorgal|Kenneth Gorgal", "Rudy Kuechenberg|Rudolph Kuechenberg", "Forrest McPherson", "Mark Merrill", "Dick Stahlman|Richard Stahlman", "Ookie Miller|Charles Miller", "Joe Zeller|Joseph Zeller", "Chuck Drulis|Charles Drulis", "Ed Neal|William Neal", "Brian Cabral|Kealiihaaheo Cabral", "Tom Bettis|William Bettis", "Tiny Engebretsen|Paul Engebretsen", "Jim Flanigan|James Flanigan", "Mike Pennel|Maurice Pennel|Michael Pennel", "Ray Stachowicz|Raymond Stachowicz", "Joel Wilson"], "H": ["Pat O'Donnell|Patrick O'Donnell", "Keith McKenzie", "Jonathan Garvin", "C.J. Wilson|Clifford Wilson", "Jonathan Ford", "Bob Hyland|Robert Hyland", "Jonathan Owens", "Steve Wright|Stephen Wright", "Anthony Morgan", "Tarvarius Moore", "Perry Hartnett", "Larry Rubens", "Ty Summers", "Ernie Janet|Ernest Janet", "Anthony Johnson Jr.", "Abdullah Anderson", "Lucas Patrick", "Scott Daly|Kevin Daly", "Keith Randolph Jr.", "Kerrith Whyte", "Deslin Alexandre", "Mark Perry", "Jeremiah Martin", "Derrick Martin", "Ron Cox|Ronald Cox", "Dax Raymond", "Royce Newman", "Danny Wuerffel|Daniel Wuerffel", "Anthony Rush", "Kahlil Bell", "Jason Spriggs", "Trey Hill|Deontrey Hill", "Jason Thompson", "Fadol Brown", "Stephen Denmark", "Stanford Samuels|Stanford III Samuels", "Auzoyah Alufohai", "Bryan Wagner", "Rob Davis|Robert Davis", "Antonio Carter|Tony Carter", "Louie Aguiar|Louis Aguiar", "Jean Delance", "Ryan Winslow", "Ryan Wetnight", "Greg Clark|Gregory Clark", "Bruce Gaston", "Dejon Allen", "Jordan Miller", "Terrell Manning|Darren Manning", "Carl Bradford", "Kaseem Sinceno", "Gene McGuire|Walter McGuire", "Jerry Wisne|Gerald Wisne", "Henry Burris", "Robert Bass", "Corey Dowden"]}, "cat": "player", "fmt": "rivalry", "sim": {"miss": 0.25}, "sub2": "bank", "fam": "rivalry", "gen": true, "pool": {"fr2": "lf"}, "poolLabel": "player who played for both the Packers and the Bears"},
 {"id": "x_nenyj", "q": "Name a player who played for both the Patriots and the Jets.", "sub": "Any seasons, any era. Every player counts.", "kind": "person", "a": {"K": ["Curtis Martin", "Ty Law|Taujan Law", "Darrelle Revis", "Kellen Winslow", "Vinny Testaverde|Vincent Testaverde", "Demaryius Thomas"], "S": ["Tony Eason|Charles Eason", "Babe Parilli|Vito Parilli", "Keith Byars", "Nick Folk|Nicholas Folk", "Shaun Ellis|MaShaunda Ellis", "Bailey Zappe", "Danny Woodhead", "Ty Montgomery", "Mike Taliaferro|Myron Taliaferro", "Jalen Mills", "Roman Phifer", "Anthony Pleasant", "Don Allard|Donald Allard", "Tom Tupa|Joseph Tupa|Thomas Tupa"], "P": ["Chris Hogan|Christopher Hogan", "Riley Patterson", "Bobby Hamilton", "Butch Songin|Edward Songin", "David Harris", "Kyle Brady", "Bryan Cox", "Terrell Buckley|Douglas Buckley", "Jim Nance|James Nance", "Tom Flick|Thomas Flick", "Gerhard Schwedes", "Mel West|Melvin West", "Bill Rademacher|William Rademacher", "Nick Lowery|Dominic Lowery", "Preston Brown", "Eric Decker", "Dick Christy|Richard Christy", "Bake Turner|Robert Turner", "Carl Garrett", "Leon Washington", "Brent Williams", "Blair Thomas", "Vincent Brisby", "Clyde Washington", "Randy Beverly|Randolph Beverly", "Dick Felt|Richard Felt", "Victor Green", "Karl Henke"], "F": ["Rogers Alexander", "Emanuel McNeil", "Mario Johnson", "Dave Meggett|David Meggett", "Braxton Berrios", "Stevan Ridley", "LaMont Jordan", "George Hoey", "Mike Dukes|Michael Dukes", "Donte Moncrief", "Tim Dwight|Timothy Dwight", "Damien Woody", "Henry Anderson", "Morgan Moses", "Otis Smith", "Garry Puetz", "Anthony Firkser", "Hank Poteat|Henry Poteat", "Terrence Brooks", "Isaiah Zuber|Willie Zuber", "Jonathan Ward", "Byron Cowart", "Brandon Smith", "William Roberts", "Dedric Ward", "Brian Poole", "Leonard Taylor III", "Eric Tomlinson", "Mike Pennel|Maurice Pennel|Michael Pennel", "James Ihedigbo", "Ray Mickens|William Mickens", "Bill Bain|William Bain", "Mike Nugent|Michael Nugent", "Steve Martin|Steven Martin", "Chris Baker", "Corey Ballentine", "Travaris Cadet", "Chad Hansen|Timothy Hansen"], "H": ["Mark Robinson", "Brian Hansen", "Corwin Brown", "Trevor Matich", "Devin Smith", "Steve DeOssie|Steven DeOssie", "Conor McDermott", "Wes Schweitzer|Weston Schweitzer", "Harvey Langi|Havea Langi", "Fred Baxter|Frederick Baxter", "Brandon Copeland", "Jerome Henderson", "Manny Jones|Emmanuel Jones|Stephen Jones", "John Saunders Jr.", "Ochaun Mathis", "Chukwuma Okorafor", "Tae Hayes|Ke'Montoe Hayes", "Phillip Adams", "Albert McClellan", "Quincy Adeboyejo", "Will Tye|Wilhelm Tye|William Tye", "Alijah Vera-Tucker|Solomon Vera-Tucker", "Rick Lyle", "Greg Van Roten|Gregory Van Roten", "Kenbrell Thompkins", "Marquice Cole", "Greg Salas|Gregory Salas", "LaRoy Reynolds", "Jason Vander Laan", "Larry Izzo|Lawrence Izzo", "Robert Nelson", "Jermaine Cunningham", "Ray Lucas", "Lex Hilliard", "Calvin Anderson", "Matt Chatham", "Anthony Johnson", "Jermaine Wiggins", "Chris Hayes|Christopher Hayes", "Matthew Mulligan", "J.T. Hassell", "Rob Holmberg|Robert Holmberg", "Rashad Moore|Glenn Moore", "Elijah Benton", "Mike Gisler|Michael Gisler", "Xavier Newman-Johnson", "Alec Lindstrom", "Liam Fornadel", "Kevin O'Connell", "Rob Carpenter|Robert Carpenter", "Trevor Reilly", "Eric Smith", "Ben Braden|Benjamin Braden", "Chris Harper|Christopher Harper", "Zach Sudfeld|Zachary Sudfeld", "Marques Murrell", "Omare Lowe", "Antonio Garcia", "John Burke", "Jason Staurovsky", "A.J. Edds|Andrew Edds", "Leonard Myers", "Earthwind Moreland", "Pat O'Neill|Patrick O'Neill", "Guss Scott", "Patrick Egu|Okechukwu Egu", "Olrick Johnson", "Kareem Brown"]}, "cat": "player", "fmt": "rivalry", "sim": {"miss": 0.25}, "sub2": "bank", "fam": "rivalry", "gen": true, "pool": {"fr2": "vy"}, "poolLabel": "player who played for both the Patriots and the Jets"},
@@ -1526,10 +1615,10 @@ function mulberry32(a){
    Rigid templates are capped at two per drive and never run on back-to-back days. */
 const SCHED_V = 5;
 const FORMULA = new Set(['pos','club','college','draftclass','rivalry','qbstart','playoffwins','sbteam']);
-const FMT_W = { pos:.7, club:.8, college:.5, draftclass:.7, rivalry:.5, qbstart:.7, season:2.4, game:2, career:1.8, award:2, sbhist:1.4, draftx:2,
+const FMT_W = { pos:.7, club:.8, college:.5, draftclass:.7, rivalry:.5, qbstart:.7, season:2.4, game:2, career:1.8, leader:1.2, award:2, sbhist:1.6, draftx:2,
   sbteam:1.8, playoffwins:1.3, rules:2, xo:1.8, coach:1.6, places:1, lore:.8, sbshow:.7, media:.6, m_commish:.6 };
 const FMT_LABEL = { pos:'Position', club:'Franchise', college:'College pipeline', draftclass:'Draft class', season:'Season milestone', game:'Single-game feat',
-  career:'Career milestone', award:'Awards & honors', draftx:'Draft day', qbstart:'QB carousel', qbcoach:'Coach & QB', rivalry:'Crossover', playoffwins:'Playoff history',
+  career:'Career milestone', leader:'League leaders', award:'Awards & honors', draftx:'Draft day', qbstart:'QB carousel', qbcoach:'Coach & QB', rivalry:'Crossover', playoffwins:'Playoff history',
   sbteam:'Super Bowl history', sbhist:'Super Bowl history', hof:'Hall of Fame', rules:'Rulebook', xo:'X’s and O’s', coach:'Sideline', lore:'Lore',
   sbshow:'Halftime', places:'Road trip', media:'Broadcast booth', m_commish:'League office' };
 const CAT_LABEL = { player:'Players', team:'Team trivia', misc:'Wildcard' };
@@ -1576,7 +1665,10 @@ function scheduleUpTo(n){
 }
 function dailyIds(date){ const i = dayIndex(date); return i < 0 ? pickDrive(mulberry32(hash('hookladder:' + date))) : scheduleUpTo(i)[i]; }
 
-function yardsOf(ans){ return ans.reduce((s, a) => s + TIER[a.tier].yds, 0); }
+/* Fourth down: on the last play you can go for it. A Play-Action or deeper answer doubles; anything else gains nothing. */
+const GO_OK = new Set(['P','F','H']);
+function playYds(a){ const y = TIER[a.tier].yds; return a.go ? (GO_OK.has(a.tier) ? 2 * y : 0) : y; }
+function yardsOf(ans){ return ans.reduce((s, a) => s + playYds(a), 0); }
 function spot(pos){ if (pos >= 100) return 'the end zone'; if (pos === 50) return 'midfield'; return pos < 50 ? `own ${pos}` : `opp ${100 - pos}`; }
 function outcome(yds){
   const pos = START + yds;
@@ -1622,7 +1714,7 @@ function gammaS(R, k){   // Marsaglia–Tsang, k >= 1
   }
 }
 const betaS = (R, a, b) => { const x = gammaS(R, a); return x / (x + gammaS(R, b)); };
-function simFan(R, models, theta){
+function simFan(R, models, theta, goP = 0){
   let yds = 0; const tiers = [];
   const u = Math.max(0, Math.min(1, (theta - .15) / .7));
   for (const m of models){
@@ -1632,7 +1724,9 @@ function simFan(R, models, theta){
     for (const t of SIM_T){ w[t] = (SIM_W0[t] + (SIM_W1[t] - SIM_W0[t]) * u) * m.avail[t] * (t === 'K' ? 1 + 3 * m.miss : 1); tot += w[t]; }
     let r = R() * tot, pick = 'K';
     for (const t of SIM_T){ r -= w[t]; if (r <= 0){ pick = t; break; } }
-    tiers.push(pick); yds += TIER[pick].yds;
+    tiers.push(pick);
+    const last = tiers.length === models.length, go = last && R() < goP;
+    yds += go ? (GO_OK.has(pick) ? 2 * TIER[pick].yds : 0) : TIER[pick].yds;
   }
   return { yds, tiers };
 }
@@ -1644,11 +1738,11 @@ function simulateDrive(ids, n = 3000){
   const R = mulberry32(hash('fans:' + k));
   const yards = [], perQ = ids.map(() => ({ K:0, S:0, C:0, P:0, F:0, H:0, X:0 }));
   for (let i = 0; i < n; i++){
-    const f = simFan(R, models, betaS(R, 2.2, 4.8));
+    const f = simFan(R, models, betaS(R, 2.2, 4.8), .35);
     yards.push(f.yds); f.tiers.forEach((t, j) => perQ[j][t]++);
   }
   perQ.forEach(q => { for (const t in q) q[t] /= n; });
-  const die = []; for (let i = 0; i < n / 2; i++) die.push(simFan(R, models, betaS(R, 6, 2.4)).yds);
+  const die = []; for (let i = 0; i < n / 2; i++) die.push(simFan(R, models, betaS(R, 6, 2.4), .55).yds);
   const med = a => { const s = a.slice().sort((x, y) => x - y); return s[Math.floor(s.length / 2)]; };
   const out = { yards, perQ, n, casualMedian: med(yards), diehardMedian: med(die),
     fg: yards.filter(y => START + y >= 65).length / n, td: yards.filter(y => START + y >= 100).length / n };
@@ -1892,7 +1986,7 @@ function viewHome(){
   const fresh = !done && store.legacy[g.date] && store.resetSeen !== SCHED_V
     ? `<div class="notice frame"><b>New questions!</b> Every drive was redrawn with a much bigger, more varied question bank, so you can play today’s drive again. Your stats carry over.</div>` : '';
   const main = done
-    ? `<div class="today frame"><p class="eyebrow">Today’s drive</p><p class="today-out ${o.k}">${o.label.toUpperCase()}</p><p class="today-spot">${resultLine(yds).toUpperCase()}</p><p class="today-pct">Better than ${pctText(pct)} of casual fans · ${rankTitle(pct)}</p><p class="emo">${g.ans.map(a => TIER[a.tier].e).join('')}</p></div>
+    ? `<div class="today frame"><p class="eyebrow">Today’s drive</p><p class="today-out ${o.k}">${o.label.toUpperCase()}</p><p class="today-spot">${resultLine(yds).toUpperCase()}</p><p class="today-pct">Better than ${pctText(pct)} of casual fans · ${rankTitle(pct)}</p><p class="emo">${emojiLine(g)}</p></div>
        <button class="btn big" id="go">See the recap</button><p class="next" id="nextin"></p>`
     : `<button class="btn big" id="go"><span class="blink">▶</span> ${started ? 'Resume drive' : 'Kick off'} <span class="blink">◀</span></button>`;
   return `<section class="home" style="display:flex;flex-direction:column;gap:22px">
@@ -1901,7 +1995,7 @@ function viewHome(){
       ${buddy(done ? pick(LINES[o.k]) : pick(LINES.home))}
     </div>
     <p class="tagline">7 plays · 25-second play clock · rare answers gain big yards</p>
-    ${fresh}${main}
+    ${inboxHTML()}${fresh}${main}
     <p class="meta">Drive #${driveNo(g.date)} · ${shortDate(g.date)}${streakNow() > 1 ? ` · <span class="nw">🔥 ${streakNow()}-day streak</span>` : ''}</p>
     <nav class="menu" aria-label="Game menu">
       <button class="mbtn" id="archive" style="--a:var(--t-s)">${icon('archive')}<span>Archive</span></button>
@@ -1927,17 +2021,42 @@ function hud(g){
     <p class="zone"><b>── ${z[0]} ──</b> ${z[1]}</p>`;
 }
 
+function isLastPlay(g){ return g.ans.length === PLAYS - 1; }
+function viewDecide(g){
+  const p = PMAP[g.ids[g.ans.length]], yds = yardsOf(g.ans), pos = START + yds;
+  const need = pos >= 100 ? 'You’re already in the end zone.' : pos >= 65 ? `You’re in field goal range. ${100 - pos} yards from six.` : `You’re ${65 - pos} yards from field goal range.`;
+  return `<div class="card frame decide">
+      <p class="eyebrow">Play 7 of 7 · Fourth down</p>
+      <h2 class="q">Fourth down. Go for it?</h2>
+      <p class="sub">${need} Next up: <b class="cat">${esc(catLabel(p))}</b>.</p>
+      <div class="choices">
+        <button class="choice go" id="goFor"><b>Go for it</b><span>Play-Action or deeper <em>doubles</em> its yards. Anything shallower, or no answer, gains nothing.</span></button>
+        <button class="choice safe" id="goSafe"><b>Play it safe</b><span>Normal yards, like every other play.</span></button>
+      </div>
+    </div>
+    ${buddy(pick(['big decision, coach.', 'fortune favors the bold.', 'trust your gut.']))}`;
+}
+function audibleNames(p){
+  const ents = compile(p).entries, out = [];
+  for (const t of ['K', 'S']) for (const e of ents) if (e.tier === t && out.length < 2) out.push(e.name);
+  return out;
+}
 function viewPlay(g){
   const p = PMAP[g.ids[g.ans.length]];
+  const gamble = isLastPlay(g) && g.go ? `<p class="gamble">🎲 Going for it: Play-Action or deeper doubles. Anything else gains nothing.</p>` : '';
+  const aud = g.aud === g.ans.length ? `<p class="audline" id="audline">📣 Everyone’s saying <b>${audibleNames(p).map(esc).join('</b> and <b>')}</b>. Go deeper.</p>`
+    : g.aud == null ? `<button class="cbtn audible" id="audible" type="button" title="Once per drive: see the two most common answers. Costs 5 seconds.">📣 <span>Audible · −5s</span></button>` : '';
   return `<div class="card frame">
       <div class="row"><p class="eyebrow">Play ${g.ans.length + 1} of ${PLAYS} · <span class="cat">${esc(catLabel(p))}</span></p><div class="clock" id="clock" role="timer" aria-label="Play clock">${CLOCK}</div></div>
       <h2 class="q">${esc(p.q)}</h2>
       <p class="sub">${esc(p.sub)}</p>
+      ${gamble}
       <form class="answer" id="answer" autocomplete="off">
         <label for="ans" class="sr">Your answer</label>
         <div class="inwrap" id="inwrap"><input id="ans" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="type an answer" enterkeyhint="go"></div>
         <button class="btn" type="submit">Snap</button>
       </form>
+      <div class="audrow" id="audrow">${aud}</div>
       <p class="fb" id="fb" role="status" aria-live="assertive"></p>
       <ul class="misses" id="misses" aria-label="Wrong guesses">${g.miss.map(m => `<li>${esc(m)}</li>`).join('')}</ul>
       <div class="bar" id="clockbar"><i id="bar"></i></div>
@@ -1957,7 +2076,7 @@ function viewResult(g){
   return `<div class="card frame" style="--c:${T.c}">
       <p class="eyebrow">Play ${g.ans.length} of ${PLAYS} · ${esc(p.q)}</p>
       <p class="stamp">${T.name}</p>
-      <p class="yds">+${T.yds} yds</p>
+      <p class="yds">+${playYds(a)} yds${a.go ? (GO_OK.has(a.tier) ? ' · <span class="gold">doubled!</span>' : ' · <span class="bad">turnover on downs</span>') : ''}</p>
       <p class="said">${said}</p>
       ${a.miss ? `<p class="dim" style="margin:0">after ${a.miss} wrong ${a.miss === 1 ? 'guess' : 'guesses'}</p>` : ''}
       <p class="vs">${fansLine(g, g.ans.length - 1)}</p>
@@ -1978,10 +2097,11 @@ function scoreboard(g){
       <div class="cell"><span class="lab">Hail Marys</span><span class="val">${hm}</span></div>
     </div>`;
 }
+function emojiLine(g){ const last = g.ans[g.ans.length - 1]; return g.ans.map(a => TIER[a.tier].e).join('') + (last && last.go ? (GO_OK.has(last.tier) ? ' 🎲✅' : ' 🎲❌') : ''); }
 function shareText(g){
   const yds = yardsOf(g.ans), o = outcome(yds);
   const pct = percentile(simulateDrive(g.ids), yds);
-  return `${S.mode === 'practice' ? 'Hook & Ladder practice' : `Hook & Ladder #${driveNo(g.date)}`} 🏈 ${o.label.toUpperCase()}\n${resultLine(yds)}\n${g.ans.map(a => TIER[a.tier].e).join('')}\nBeat ${pctText(pct)} of simulated fans · ${rankTitle(pct)}${GAME_URL ? '\n' + GAME_URL : ''}`;
+  return `${S.mode === 'practice' ? 'Hook & Ladder practice' : `Hook & Ladder #${driveNo(g.date)}`} 🏈 ${o.label.toUpperCase()}\n${resultLine(yds)}\n${emojiLine(g)}\nBeat ${pctText(pct)} of simulated fans · ${rankTitle(pct)}${GAME_URL ? '\n' + GAME_URL : ''}`;
 }
 function answersHTML(p, mine){
   const ents = compile(p).entries, onBoard = ents.some(e => e.name === mine);
@@ -2054,8 +2174,8 @@ function viewFinal(g){
     const p = PMAP[g.ids[i]], T = TIER[a.tier];
     const you = a.tier === 'X' ? 'no answer in time' : esc(a.name);
     return `<li style="--c:${T.c}">
-        <div class="rrow"><span class="chip">${T.name} +${T.yds}</span><span class="rq">${esc(p.q)}</span>
-          <span class="you">you: ${you}${a.miss ? ` · ${a.miss} miss${a.miss === 1 ? '' : 'es'}` : ''}</span>
+        <div class="rrow"><span class="chip">${T.name} +${playYds(a)}</span><span class="rq">${esc(p.q)}</span>
+          <span class="you">you: ${you}${a.miss ? ` · ${a.miss} miss${a.miss === 1 ? '' : 'es'}` : ''}${a.go ? (GO_OK.has(a.tier) ? ' · 🎲 went for it, doubled' : ' · 🎲 went for it, no gain') : ''}${a.aud ? ' · 📣 audible' : ''}</span>
           ${fanBar(g, i)}
           <button class="ans-btn" data-i="${i}" aria-expanded="false" aria-controls="ans-${i}">Show answers ▼</button></div>
         <div class="ans-panel" id="ans-${i}" hidden><p class="ans-head">${boardCount(p)}, rarest first</p>${answersHTML(p, a.name)}</div>
@@ -2072,15 +2192,103 @@ function viewFinal(g){
       <h2 class="big-out ${o.k}">${o.label.toUpperCase()}${o.k === 'td' ? '!' : ''}</h2>
       ${scoreboard(g)}
       <p class="sum">${o.line}</p>
+      ${h2hHTML(g)}
       ${compareHTML(g)}
-      <p class="emo" aria-label="Your seven plays">${g.ans.map(a => TIER[a.tier].e).join('')}</p>
+      <p class="emo" aria-label="Your seven plays">${emojiLine(g)}</p>
       <div class="copyrow"><button class="btn ghost" id="copy">Copy result</button><span class="toast" id="toast" role="status"></span></div>
+      ${challengeBox(g)}
       <div class="recap-top"><p class="recap-hint">The recap</p><button class="ans-btn all" id="allAns" aria-expanded="false">Show all answers ▼</button></div>
       <ol class="recap">${rows}</ol>
       <div class="actions">${actions}</div>
       ${mode === 'daily' ? '<p class="next" id="nextin"></p>' : ''}
     </div>
     ${buddy(pick(LINES[o.k]))}`;
+}
+
+
+/* ---------- head-to-head challenges (no server: the link carries the drive and every answer) ---------- */
+const b64e = s => btoa(unescape(encodeURIComponent(s))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+const b64d = s => decodeURIComponent(escape(atob(s.replace(/-/g, '+').replace(/_/g, '/'))));
+const sameIds = (a, b) => a && b && a.length === b.length && a.every((x, i) => x === b[i]);
+function keyFor(date, ids){ return date && dayIndex(date) >= 0 && sameIds(dailyIds(date), ids) ? 'd:' + date : 'p:' + ids.join(','); }
+function driveKey(g){ return keyFor(g.date, g.ids); }
+function challengeURL(g){
+  const c = { v:1, n:(store.name || 'A friend').slice(0, 20), d:g.date || null, i:g.ids, t:g.ans.map(a => a.tier).join(''), a:g.ans.map(a => a.name || ''), go:g.ans.some(a => a.go) ? 1 : 0 };
+  return (GAME_URL || location.origin + location.pathname) + '#c=' + b64e(JSON.stringify(c));
+}
+function readChallenge(){
+  const m = location.hash.match(/#c=([A-Za-z0-9_-]+)/); if (!m) return;
+  try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {}
+  try {
+    const c = JSON.parse(b64d(m[1]));
+    if (!c || c.v !== 1 || typeof c.t !== 'string' || c.t.length !== PLAYS || !Array.isArray(c.i) || c.i.length !== PLAYS || !c.i.every(id => PMAP[id])) return;
+    if (![...c.t].every(t => TIER[t])) return;
+    c.n = String(c.n || 'A friend').slice(0, 20); c.key = keyFor(c.d, c.i); c.at = Date.now();
+    store.chal = store.chal || {};
+    store.chal[c.key] = (store.chal[c.key] || []).filter(x => !(x.n === c.n && x.t === c.t)).concat([c]).slice(-5);
+    store.inbox = c.key; save();
+  } catch (e) {}
+}
+const theirAns = c => [...c.t].map((t, i) => ({ tier:t, name:c.a[i] || null, go: !!c.go && i === PLAYS - 1 }));
+function finishedFor(key){
+  if (key.startsWith('d:')){ const r = store.days[key.slice(2)]; return r && r.phase === 'final' ? r : null; }
+  const r = (store.chalDone || {})[key]; return r && r.phase === 'final' ? r : null;
+}
+function acceptChallenge(key){
+  stopClock();
+  if (key.startsWith('d:')){
+    const d = key.slice(2);
+    if (d === todayStr()){ S.mode = 'daily'; goGame(); return; }
+    if (d < todayStr()){ openArchive(d); return; }
+  }
+  const c = store.chal[key].slice(-1)[0], done = finishedFor(key);
+  S.mode = 'practice'; S.practice = done ? clone(done) : Object.assign(freshDrive(c.i), { date: key.startsWith('d:') ? null : null });
+  goGame();
+}
+function inboxHTML(){
+  const key = store.inbox, list = key && store.chal && store.chal[key];
+  if (!list || !list.length) return '';
+  const c = list[list.length - 1], y = yardsOf(theirAns(c)), o = outcome(y), done = finishedFor(key);
+  const what = key.startsWith('d:') ? `Drive #${driveNo(key.slice(2))}` : 'a practice drive';
+  return `<div class="inbox frame"><p class="eyebrow">⚔️ Challenge</p>
+      <p class="inb"><b>${esc(c.n)}</b> ${done ? 'played' : 'challenged you on'} ${what}: <b class="${o.k}">${o.label.toUpperCase()}</b>, ${y} yds.${done ? '' : ' Can you beat it?'}</p>
+      <div class="inb-row"><button class="btn" id="accept">${done ? 'See head-to-head' : 'Accept challenge'}</button><button class="link" id="dismiss">Dismiss</button></div></div>`;
+}
+function h2hHTML(g){
+  const list = ((store.chal || {})[driveKey(g)] || []).slice(-3).reverse();
+  if (!list.length) return '';
+  const mine = yardsOf(g.ans);
+  return list.map(c => {
+    const th = theirAns(c), ty = yardsOf(th);
+    let wins = 0, losses = 0;
+    const rows = g.ans.map((a, i) => {
+      const my = playYds(a), their = playYds(th[i]);
+      if (my > their) wins++; else if (their > my) losses++;
+      const cell = x => `<span class="h-a" style="--c:${TIER[x.tier].c}"><i>${TIER[x.tier].e}</i>${x.name ? esc(x.name) : '—'} <em>+${playYds(x)}</em></span>`;
+      return `<li class="${my > their ? 'w' : their > my ? 'l' : 't'}"><span class="h-q">${i + 1}. ${esc(catLabel(PMAP[g.ids[i]]))}</span>${cell(a)}${cell(th[i])}<span class="h-m">${my > their ? '◀' : their > my ? '▶' : '='}</span></li>`;
+    }).join('');
+    const verdict = mine > ty ? `You win by ${mine - ty} yds!` : ty > mine ? `${esc(c.n)} wins by ${ty - mine} yds.` : 'Dead even.';
+    return `<section class="h2h frame" aria-label="Head to head with ${esc(c.n)}">
+        <div class="h-top"><p class="eyebrow">Head to head</p><span class="h-score">You <b>${mine}</b> · <b>${ty}</b> ${esc(c.n)}</span></div>
+        <p class="h-verdict ${mine > ty ? 'win' : ty > mine ? 'lose' : ''}">${verdict} <span class="dim">Plays won ${wins}–${losses}.</span></p>
+        <ol class="h-rows"><li class="h-head"><span class="h-q">Play</span><span>You</span><span>${esc(c.n)}</span><span></span></li>${rows}</ol>
+      </section>`;
+  }).join('');
+}
+function challengeBox(g){
+  const back = ((store.chal || {})[driveKey(g)] || []).length;
+  return `<div class="chal-box">
+      <label class="sr" for="myname">Your name</label>
+      <input id="myname" class="name-in" maxlength="20" placeholder="Your name" value="${esc(store.name || '')}">
+      <button class="btn" id="challenge">⚔️ ${back ? 'Send your result back' : 'Challenge a friend'}</button>
+      <span class="toast" id="ctoast" role="status"></span></div>`;
+}
+function copyChallenge(g){
+  const nm = ($('#myname') && $('#myname').value.trim()) || store.name || '';
+  store.name = nm; save();
+  const y = yardsOf(g.ans), o = outcome(y), what = S.mode === 'practice' ? 'a Hook & Ladder practice drive' : `Hook & Ladder #${driveNo(g.date)}`;
+  const t = `${nm || 'I'} went ${y} yds (${o.label.toLowerCase()}) on ${what}. Same seven plays, can you beat it? ${challengeURL(g)}`;
+  copyText(t, () => { const el = $('#ctoast'); if (el) el.textContent = 'Challenge link copied! Send it to a friend.'; });
 }
 
 /* ---------- archive ---------- */
@@ -2137,7 +2345,12 @@ function submit(timedOut){
   if (r.tier !== 'X' || timedOut){
     raf && cancelAnimationFrame(raf); raf = 0;
     const ok = r.tier !== 'X';
-    g.ans.push({ text, tier: ok ? r.tier : 'X', name: ok ? r.name : null, miss: g.miss.length });
+    const i = g.ans.length, tier = ok ? r.tier : 'X';
+    const a = { text, tier, name: ok ? r.name : null, miss: g.miss.length };
+    if (i === PLAYS - 1 && g.go) a.go = true;
+    if (g.aud === i) a.aud = true;
+    try { a.fp = playPercentile(simulateDrive(g.ids).perQ[i], tier); } catch (e) {}
+    g.ans.push(a);
     g.miss = []; g.left = null; g.phase = 'result';
     persist(); sfx(ok ? r.tier : 'buzzer');
     render({ animate:true });
@@ -2159,6 +2372,8 @@ function next(){
   if (g.ans.length >= PLAYS){
     g.phase = 'final'; g.finishedOn = todayStr(); g.pct = percentile(simulateDrive(g.ids), yardsOf(g.ans));
     if (S.mode === 'daily') store.resetSeen = SCHED_V;
+    const k = driveKey(g);
+    if (store.chal && store.chal[k]){ if (S.mode === 'practice'){ store.chalDone = store.chalDone || {}; store.chalDone[k] = clone(g); } if (store.inbox === k) store.inbox = null; save(); }
     persist(); render();
     const o = outcome(yardsOf(g.ans)); sfx(o.k); if (o.k === 'td') confetti(150);
   } else { g.phase = 'play'; persist(); render(); sfx('start'); }
@@ -2184,6 +2399,7 @@ function render(opts = {}){
     app.innerHTML = viewHome(); paintMascots(); startHero();
     $('#go').onclick = goGame;
     $('#archive').onclick = goArchive;
+    if ($('#accept')){ $('#accept').onclick = () => acceptChallenge(store.inbox); $('#dismiss').onclick = () => { store.inbox = null; save(); render(); }; }
     $('#invite').onclick = () => copyText(`Play Hook & Ladder with me: the daily NFL trivia game where the obvious answer is a kneel-down.${GAME_URL ? ' ' + GAME_URL : ''}`, () => { const s = $('#invite span'); s.textContent = 'Link copied!'; setTimeout(() => { const t = $('#invite span'); if (t) t.textContent = 'Invite friends'; }, 1800); });
     $('#practice').onclick = startPractice;
     $('#stats').onclick = () => openSheet(statsHTML());
@@ -2200,19 +2416,33 @@ function render(opts = {}){
     return;
   }
   const g = cur();
-  const body = g.phase === 'play' ? viewPlay(g) : g.phase === 'result' ? viewResult(g) : viewFinal(g);
+  const deciding = g.phase === 'play' && isLastPlay(g) && g.go == null;
+  const body = deciding ? viewDecide(g) : g.phase === 'play' ? viewPlay(g) : g.phase === 'result' ? viewResult(g) : viewFinal(g);
   app.innerHTML = hud(g) + body;
   paintMascots();
   if (opts.animate) animateStrip(g); else drawStrip(g, 1);
   $('#home').onclick = S.mode === 'archive' ? goArchive : goHome; $('#snd').onclick = toggleSound;
-  if (g.phase === 'play'){
+  if (deciding){
+    const choose = go => { g.go = go; persist(); sfx(go ? 'H' : 'start'); render(); };
+    $('#goFor').onclick = () => choose(true); $('#goSafe').onclick = () => choose(false);
+    $('#goFor').focus({ preventScroll:true });
+  } else if (g.phase === 'play'){
     $('#answer').onsubmit = e => { e.preventDefault(); submit(false); };
+    const ab = $('#audible');
+    if (ab) ab.onclick = () => {
+      const p = PMAP[g.ids[g.ans.length]];
+      g.aud = g.ans.length; deadline -= 5000; persist();
+      $('#audrow').innerHTML = `<p class="audline" id="audline">📣 Everyone’s saying <b>${audibleNames(p).map(esc).join('</b> and <b>')}</b>. Go deeper.</p>`;
+      sfx('wrong'); $('#ans').focus();
+    };
     $('#ans').focus({ preventScroll:true });
     startClock(g.left || CLOCK * 1000);
   } else if (g.phase === 'result'){
     $('#next').onclick = next; $('#next').focus({ preventScroll:true });
   } else {
     $('#copy').onclick = copyShare;
+    $('#challenge').onclick = () => copyChallenge(g);
+    $('#myname').onchange = e => { store.name = e.target.value.trim(); save(); };
     const bind = (id, fn) => { const b = $('#' + id); if (b) b.onclick = fn; };
     bind('again', startPractice); bind('home2', goHome); bind('toArchive', goArchive);
     bind('nextArchive', () => { const d = archiveDates().find(x => !(store.days[x] && store.days[x].phase === 'final')); d ? openArchive(d) : goArchive(); });
@@ -2252,7 +2482,7 @@ function openSheet(html){
 function closeSheet(){
   $('#modal').hidden = true;
   const g = cur();
-  if (S.screen === 'game' && g.phase === 'play'){ startClock(g.left || CLOCK * 1000); $('#ans') && $('#ans').focus(); }
+  if (S.screen === 'game' && g.phase === 'play' && $('#clock')){ startClock(g.left || CLOCK * 1000); $('#ans') && $('#ans').focus(); }
   else if (lastFocus) lastFocus.focus();
 }
 function helpHTML(){
@@ -2260,22 +2490,100 @@ function helpHTML(){
     <p>Seven NFL prompts. 25 seconds each. Type an answer and snap it.</p>
     <p>Wrong? Keep guessing until you hit a right answer or the clock runs out. Every right answer gains yards, and rarer answers gain more.</p>
     <p>You start at your own 25. Gain 40 yards for field goal range, 75 for a touchdown.</p>
-    <p>Each drive draws seven questions from a bank of about 180: players, teams, season and career milestones, draft-day oddities, Super Bowl history, X’s and O’s and more. No formula shows up more than twice in a drive.</p>
+    <p>Each drive draws seven questions from a bank of about 200: players, teams, season and career milestones, draft-day oddities, Super Bowl history, X’s and O’s and more. No formula shows up more than twice in a drive.</p>
+    <p><b>Fourth down:</b> before the last play, go for it or play it safe. Going for it doubles a Play-Action, Flea Flicker or Hail Mary, but anything shallower (or no answer) gains nothing.</p>
+    <p><b>Audible:</b> once per drive, spend 5 seconds of play clock to see the two most common answers, so you know what to steer away from.</p>
+    <p><b>Challenges:</b> after a drive, send a challenge link. Your friend plays the same seven plays and sees a play-by-play head-to-head; they can send theirs right back.</p>
     <p>After the final whistle you’ll see how you stack up against thousands of simulated casual fans who played the same drive, play by play and overall.</p>
     <ul class="tiers">${['K','S','P','F','H','C','X'].map(t => `<li style="--c:${TIER[t].c}"><span class="n">${TIER[t].name}</span><span class="y">+${TIER[t].yds}</span><span class="dim">${TIER[t].d}</span></li>`).join('')}</ul>
     <p class="dim">Same daily drive for everyone, new one at midnight. Every past drive stays playable in the archive. Practice drives are random and unlimited. Rarity tiers are estimates of how often fans give each answer. Player, team and coach questions check against every player in league history (1920 to today, from nflverse roster data), so any correct name counts; one that isn’t on the board scores as a Hail Mary. Lists are current through Super Bowl LX, the 2025 season, the 2026 draft and 2026 rosters. The fan comparison is a simulation, not real players: each question’s difficulty and answer board decide how often a typical fan whiffs, kneels or goes deep. Stats stay in this browser.</p>`;
 }
+function finishedDrives(){ return Object.values(store.days).concat(legacyAll()).filter(g => g && g.phase === 'final' && g.ans && g.ans.length === PLAYS); }
+function playFP(g, i){
+  const a = g.ans[i]; if (a.fp != null) return a.fp;
+  if (!g.ids || !g.ids.every(id => PMAP[id])) return null;
+  try { return (a.fp = playPercentile(simulateDrive(g.ids).perQ[i], a.tier)); } catch (e) { return null; }
+}
+function longestStreak(){
+  const fin = new Set(finishedDrives().filter(g => g.finishedOn === g.date).map(g => g.date));
+  let best = 0;
+  for (const d of fin){ const p = new Date(d + 'T12:00:00'); p.setDate(p.getDate() - 1); if (fin.has(todayStr(p))) continue;
+    let n = 0; const x = new Date(d + 'T12:00:00'); while (fin.has(todayStr(x))){ n++; x.setDate(x.getDate() + 1); } best = Math.max(best, n); }
+  return best;
+}
+function h2hWins(){
+  let w = 0;
+  for (const [k, list] of Object.entries(store.chal || {})){ const g = finishedFor(k); if (!g) continue; const y = yardsOf(g.ans); if (list.some(c => y > yardsOf(theirAns(c)))) w++; }
+  return w;
+}
+const BADGES = [
+  ['🏈', 'Kickoff', 'Finish your first drive.', s => s.n >= 1],
+  ['🙏', 'Hail Mary', 'Land a Hail Mary answer.', s => s.hm >= 1],
+  ['🎩', 'Hat trick', 'Three Hail Marys in one drive.', s => s.maxHM >= 3],
+  ['🏆', 'Six points', 'Score a touchdown.', s => s.td >= 1],
+  ['🧼', 'Clean drive', 'A drive with no Kneel-Downs and no empty plays.', s => s.clean],
+  ['🎲', 'Gunslinger', 'Convert a fourth-down gamble.', s => s.gun],
+  ['📣', 'Check with me', 'Call an audible, then go Play-Action or deeper on that play.', s => s.aud],
+  ['🥇', 'Hall of Famer', 'Beat 99% of simulated fans in a drive.', s => s.best >= .99],
+  ['🔥', 'Iron man', 'Finish the daily drive 7 days in a row.', s => s.streak >= 7],
+  ['🎞️', 'Film room', 'Finish 10 archive drives.', s => s.arch >= 10],
+  ['🎖️', 'Veteran', 'Finish 25 drives.', s => s.n >= 25],
+  ['⚔️', 'Rivalry win', 'Beat a friend head-to-head.', s => s.rival >= 1],
+];
 function statsHTML(){
-  const days = Object.values(store.days).concat(legacyAll()).filter(g => g && g.phase === 'final');
+  const days = finishedDrives();
   const pcts = days.filter(g => g.pct != null).map(g => g.pct);
   const yards = days.map(g => yardsOf(g.ans));
   const td = yards.filter(y => START + y >= 100).length, fg = yards.filter(y => START + y >= 65 && START + y < 100).length;
   const hm = days.reduce((s, g) => s + g.ans.filter(a => a.tier === 'H').length, 0);
   const streak = streakNow();
   const cell = (v, l) => `<div class="stat frame"><b>${v}</b><span>${l}</span></div>`;
+  // strengths by category, from the most recent 60 drives
+  const recent = days.slice().sort((x, y) => (x.finishedOn || '') < (y.finishedOn || '') ? 1 : -1).slice(0, 60), cats = {};
+  for (const g of recent) g.ans.forEach((a, i) => {
+    const p = PMAP[g.ids[i]]; if (!p) return;
+    const fp = playFP(g, i); if (fp == null) return;
+    const c = cats[catLabel(p)] = cats[catLabel(p)] || { n:0, s:0 }; c.n++; c.s += fp;
+  });
+  const cl = Object.entries(cats).map(([k, v]) => ({ k, n:v.n, avg:v.s / v.n })).sort((x, y) => y.avg - x.avg);
+  const ranked = cl.filter(c => c.n >= 2);
+  const strong = ranked[0], weak = ranked.length > 1 ? ranked[ranked.length - 1] : null;
+  const catRows = cl.map(c => `<li><span class="cn">${esc(c.k)}</span><span class="cb"><i style="width:${Math.round(c.avg * 100)}%"></i></span><span class="cr">${rankTitle(c.avg)}</span><span class="cc">${c.n} play${c.n === 1 ? '' : 's'}</span></li>`).join('');
+  // last 30 drives vs the casual-fan median
+  const last30 = days.slice().sort((x, y) => ((x.date || x.finishedOn) > (y.date || y.finishedOn) ? 1 : -1)).slice(-30);
+  const W = 440, H = 120, bw = W / Math.max(10, last30.length), base = H - 14, top = 140;
+  const bars = last30.map((g, i) => {
+    const y = yardsOf(g.ans), h = Math.max(2, Math.round(y / top * (base - 8))), k = outcome(y).k;
+    let med = null; try { if (g.ids.every(id => PMAP[id])) med = simulateDrive(g.ids).casualMedian; } catch (e) {}
+    const x = i * bw + 2;
+    return `<rect x="${x.toFixed(1)}" y="${base - h}" width="${(bw - 4).toFixed(1)}" height="${h}" fill="${k === 'td' ? 'var(--gold)' : k === 'fg' ? 'var(--t-s)' : '#5b64a3'}"/>`
+      + (med != null ? `<rect x="${(x - 1).toFixed(1)}" y="${base - Math.round(med / top * (base - 8)) - 1}" width="${(bw - 2).toFixed(1)}" height="3" fill="var(--chalk)"/>` : '');
+  }).join('');
+  const fgY = base - Math.round(40 / top * (base - 8)), tdY = base - Math.round(75 / top * (base - 8));
+  const trend = last30.length ? `<svg class="trend" viewBox="0 0 ${W} ${H}" shape-rendering="crispEdges" role="img" aria-label="Your last ${last30.length} drives in yards, with the casual-fan median for each.">
+      <line x1="0" x2="${W}" y1="${fgY}" y2="${fgY}" class="mark fgl"/><line x1="0" x2="${W}" y1="${tdY}" y2="${tdY}" class="mark tdl"/>
+      ${bars}<line x1="0" x2="${W}" y1="${base}" y2="${base}" class="axis"/>
+      <text x="0" y="${H - 1}">oldest</text><text x="${W}" y="${H - 1}" text-anchor="end">latest</text></svg>` : '<p class="dim">Finish a drive to start your chart.</p>';
+  // badges
+  const sv = { n:days.length, hm, td, best: pcts.length ? Math.max(...pcts) : 0, streak: Math.max(streak, longestStreak()),
+    maxHM: Math.max(0, ...days.map(g => g.ans.filter(a => a.tier === 'H').length)),
+    clean: days.some(g => g.ans.every(a => a.tier !== 'K' && a.tier !== 'X')),
+    gun: days.concat(Object.values(store.chalDone || {})).some(g => g.ans.some(a => a.go && GO_OK.has(a.tier))),
+    aud: days.some(g => g.ans.some(a => a.aud && ['P', 'F', 'H'].includes(a.tier))),
+    arch: days.filter(g => g.date && g.finishedOn && g.finishedOn !== g.date).length, rival: h2hWins() };
+  const earned = BADGES.filter(b => b[3](sv)).length;
+  const badges = BADGES.map(([e, n, d, t]) => `<li class="${t(sv) ? 'on' : 'off'}"><span class="be">${t(sv) ? e : '🔒'}</span><b>${n}</b><span>${d}</span></li>`).join('');
   return `<h2 id="sheet-title">Your stats</h2>
     <div class="stats">${cell(days.length, 'Drives')}${cell(td, 'Touchdowns')}${cell(fg, 'Field goals')}${cell(yards.length ? Math.max(...yards) : 0, 'Best yds')}${cell(yards.length ? Math.round(yards.reduce((a, b) => a + b, 0) / yards.length) : 0, 'Avg yds')}${cell(hm, 'Hail Marys')}${cell(streak, 'Streak')}${cell(pcts.length ? pctText(pcts.reduce((a, b) => a + b, 0) / pcts.length) : '—', 'Avg vs fans')}</div>
-    <p class="dim">Daily and archive drives, including ones played before the November 2026 question redraws. The streak counts daily drives finished on their own day. “Avg vs fans” is the share of simulated casual fans you beat, on average. Kept in this browser.</p>`;
+    <h3 class="sh">Strengths and weak spots</h3>
+    ${strong ? `<p class="sw">You’re <b>${rankTitle(strong.avg)}</b> on <b>${esc(strong.k)}</b>${weak && weak.k !== strong.k ? ` and <b>${rankTitle(weak.avg)}</b> on <b>${esc(weak.k)}</b>` : ''}.</p>` : '<p class="dim">Play a couple of drives and your best and worst categories show up here.</p>'}
+    ${cl.length ? `<ul class="cats">${catRows}</ul><p class="dim">Rank = share of simulated casual fans you beat on that kind of question, on average.</p>` : ''}
+    <h3 class="sh">${last30.length === 1 ? 'Your last drive' : last30.length ? `Your last ${last30.length} drives` : 'Your drives'}</h3>
+    ${trend}
+    ${last30.length ? '<p class="dim">Bars are your yards (blue = field goal range, gold = touchdown). White ticks mark the casual-fan median for that drive.</p>' : ''}
+    <h3 class="sh">Badges <span class="dim">${earned} of ${BADGES.length}</span></h3>
+    <ul class="badges">${badges}</ul>
+    <p class="dim">Daily and archive drives, including ones played before the November 2026 question redraws. The streak counts daily drives finished on their own day. Kept in this browser.</p>`;
 }
 
 $('#modal').addEventListener('click', e => { if (e.target.id === 'modal') closeSheet(); });
@@ -2283,8 +2591,10 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#modal
 
 function boot(data){
   if (data && data.S && data.S.screen) S = data.S;
+  readChallenge();
   render();
 }
+window.addEventListener('hashchange', () => { if (/#c=/.test(location.hash)){ $('#modal').hidden = true; readChallenge(); goHome(); } });
 window.claude?.hot?.snapshot?.(() => ({ S }));
 window.claude?.hot?.ready ? window.claude.hot.ready(boot) : boot(window.claude?.hot?.data ?? {});
 // Warm the all-player table while the player reads the home screen, so the first guess is instant.
