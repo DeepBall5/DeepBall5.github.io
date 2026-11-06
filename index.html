@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hook &amp; Ladder</title>
-<meta name="description" content="Hook &amp; Ladder: the daily NFL trivia game where the obvious answer is a kneel-down. Seven plays, a 25-second play clock, and rare answers gain big yards.">
-<meta property="og:title" content="Hook &amp; Ladder">
+<title>Purdy · daily NFL trivia</title>
+<meta name="description" content="Purdy: the daily NFL trivia game where the obvious answer is a kneel-down. Seven plays, a 25-second play clock, and rare answers gain big yards.">
+<meta property="og:title" content="Purdy · daily NFL trivia">
 <meta property="og:description" content="The daily NFL trivia game where the obvious answer is a kneel-down.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://deepball5.github.io/">
@@ -78,7 +78,7 @@ button{font:inherit;color:inherit}
 .hero{position:relative;margin:0 -16px}
 #hero{display:block;width:100%;height:auto;image-rendering:pixelated}
 .title{position:absolute;left:0;right:0;top:7%;text-align:center}
-.title h1{margin:0;font:clamp(18px,6.2vw,50px)/1 var(--pixel);color:var(--gold);letter-spacing:.02em;text-shadow:4px 4px 0 #c2410c,8px 8px 0 #000}
+.title h1{margin:0;font:clamp(34px,11vw,80px)/1 var(--pixel);color:var(--gold);letter-spacing:.04em;text-shadow:.06em .06em 0 #c2410c,.12em .12em 0 #000}
 .kicker{margin:14px 0 0;font:clamp(9px,1.7vw,13px)/1 var(--pixel);letter-spacing:.42em;color:var(--chalk);text-shadow:2px 2px 0 #000}
 .hero .buddy{position:absolute;left:50%;bottom:7%;transform:translateX(-36px)}
 .hero .buddy{max-width:calc(50% + 26px)} .hero .bubble{white-space:normal;line-height:1.05}
@@ -1376,7 +1376,7 @@ PROMPTS.push(
   });
 })();
 
-/* Hook & Ladder — scoring and answer matching */
+/* Purdy — scoring and answer matching */
 const TIER = {
   K:{ name:'Kneel-Down',   yds:1,  c:'var(--t-k)', e:'⬜', d:'The answer everybody gives.',
       note:'Everybody’s first thought. Safe, but it barely moves the chains.' },
@@ -1755,7 +1755,7 @@ function playPercentile(dist, tier){ const my = TIER[tier].yds; let lo = 0, eq =
 function rankTitle(pct){ return pct >= .99 ? 'Hall of Famer' : pct >= .9 ? 'All-Pro' : pct >= .75 ? 'Pro Bowler' : pct >= .5 ? 'Starter' : pct >= .25 ? 'Backup' : 'Practice squad'; }
 
 
-/* Hook & Ladder — interface (v2: retro arcade) */
+/* Purdy — interface (v2: retro arcade) */
 const $ = (s, r = document) => r.querySelector(s);
 const PMAP = Object.fromEntries(PROMPTS.map(p => [p.id, p]));
 const GAME_URL = (/^https?:$/.test(location.protocol) ? location.origin + location.pathname.replace(/index\.html$/, '') : '');
@@ -1991,7 +1991,7 @@ function viewHome(){
     : `<button class="btn big" id="go"><span class="blink">▶</span> ${started ? 'Resume drive' : 'Kick off'} <span class="blink">◀</span></button>`;
   return `<section class="home" style="display:flex;flex-direction:column;gap:22px">
     <div class="hero"><canvas id="hero" width="320" height="150" aria-hidden="true"></canvas>
-      <div class="title"><h1>HOOK &amp; LADDER</h1><p class="kicker">THE DAILY DRIVE</p></div>
+      <div class="title"><h1>PURDY</h1><p class="kicker">THE DAILY DRIVE</p></div>
       ${buddy(done ? pick(LINES[o.k]) : pick(LINES.home))}
     </div>
     <p class="tagline">7 plays · 25-second play clock · rare answers gain big yards</p>
@@ -2101,7 +2101,7 @@ function emojiLine(g){ const last = g.ans[g.ans.length - 1]; return g.ans.map(a 
 function shareText(g){
   const yds = yardsOf(g.ans), o = outcome(yds);
   const pct = percentile(simulateDrive(g.ids), yds);
-  return `${S.mode === 'practice' ? 'Hook & Ladder practice' : `Hook & Ladder #${driveNo(g.date)}`} 🏈 ${o.label.toUpperCase()}\n${resultLine(yds)}\n${emojiLine(g)}\nBeat ${pctText(pct)} of simulated fans · ${rankTitle(pct)}${GAME_URL ? '\n' + GAME_URL : ''}`;
+  return `${S.mode === 'practice' ? 'Purdy practice' : `Purdy #${driveNo(g.date)}`} 🏈 ${o.label.toUpperCase()}\n${resultLine(yds)}\n${emojiLine(g)}\nBeat ${pctText(pct)} of simulated fans · ${rankTitle(pct)}${GAME_URL ? '\n' + GAME_URL : ''}`;
 }
 function answersHTML(p, mine){
   const ents = compile(p).entries, onBoard = ents.some(e => e.name === mine);
@@ -2286,7 +2286,7 @@ function challengeBox(g){
 function copyChallenge(g){
   const nm = ($('#myname') && $('#myname').value.trim()) || store.name || '';
   store.name = nm; save();
-  const y = yardsOf(g.ans), o = outcome(y), what = S.mode === 'practice' ? 'a Hook & Ladder practice drive' : `Hook & Ladder #${driveNo(g.date)}`;
+  const y = yardsOf(g.ans), o = outcome(y), what = S.mode === 'practice' ? 'a Purdy practice drive' : `Purdy #${driveNo(g.date)}`;
   const t = `${nm || 'I'} went ${y} yds (${o.label.toLowerCase()}) on ${what}. Same seven plays, can you beat it? ${challengeURL(g)}`;
   copyText(t, () => { const el = $('#ctoast'); if (el) el.textContent = 'Challenge link copied! Send it to a friend.'; });
 }
@@ -2400,7 +2400,7 @@ function render(opts = {}){
     $('#go').onclick = goGame;
     $('#archive').onclick = goArchive;
     if ($('#accept')){ $('#accept').onclick = () => acceptChallenge(store.inbox); $('#dismiss').onclick = () => { store.inbox = null; save(); render(); }; }
-    $('#invite').onclick = () => copyText(`Play Hook & Ladder with me: the daily NFL trivia game where the obvious answer is a kneel-down.${GAME_URL ? ' ' + GAME_URL : ''}`, () => { const s = $('#invite span'); s.textContent = 'Link copied!'; setTimeout(() => { const t = $('#invite span'); if (t) t.textContent = 'Invite friends'; }, 1800); });
+    $('#invite').onclick = () => copyText(`Play Purdy with me: the daily NFL trivia game where the obvious answer is a kneel-down.${GAME_URL ? ' ' + GAME_URL : ''}`, () => { const s = $('#invite span'); s.textContent = 'Link copied!'; setTimeout(() => { const t = $('#invite span'); if (t) t.textContent = 'Invite friends'; }, 1800); });
     $('#practice').onclick = startPractice;
     $('#stats').onclick = () => openSheet(statsHTML());
     $('#help').onclick = () => openSheet(helpHTML());
@@ -2496,7 +2496,8 @@ function helpHTML(){
     <p><b>Challenges:</b> after a drive, send a challenge link. Your friend plays the same seven plays and sees a play-by-play head-to-head; they can send theirs right back.</p>
     <p>After the final whistle you’ll see how you stack up against thousands of simulated casual fans who played the same drive, play by play and overall.</p>
     <ul class="tiers">${['K','S','P','F','H','C','X'].map(t => `<li style="--c:${TIER[t].c}"><span class="n">${TIER[t].name}</span><span class="y">+${TIER[t].yds}</span><span class="dim">${TIER[t].d}</span></li>`).join('')}</ul>
-    <p class="dim">Same daily drive for everyone, new one at midnight. Every past drive stays playable in the archive. Practice drives are random and unlimited. Rarity tiers are estimates of how often fans give each answer. Player, team and coach questions check against every player in league history (1920 to today, from nflverse roster data), so any correct name counts; one that isn’t on the board scores as a Hail Mary. Lists are current through Super Bowl LX, the 2025 season, the 2026 draft and 2026 rosters. The fan comparison is a simulation, not real players: each question’s difficulty and answer board decide how often a typical fan whiffs, kneels or goes deep. Stats stay in this browser.</p>`;
+    <p class="dim">Same daily drive for everyone, new one at midnight. Every past drive stays playable in the archive. Practice drives are random and unlimited. Rarity tiers are estimates of how often fans give each answer. Player, team and coach questions check against every player in league history (1920 to today, from nflverse roster data), so any correct name counts; one that isn’t on the board scores as a Hail Mary. Lists are current through Super Bowl LX, the 2025 season, the 2026 draft and 2026 rosters. The fan comparison is a simulation, not real players: each question’s difficulty and answer board decide how often a typical fan whiffs, kneels or goes deep. Stats stay in this browser.</p>
+    <p class="dim"><b>Why “Purdy”?</b> The 49ers took Brock Purdy 262nd, the very last pick of the 2022 draft, and he went on to start a Super Bowl. Here too, the pick nobody else makes is the one that wins.</p>`;
 }
 function finishedDrives(){ return Object.values(store.days).concat(legacyAll()).filter(g => g && g.phase === 'final' && g.ans && g.ans.length === PLAYS); }
 function playFP(g, i){
