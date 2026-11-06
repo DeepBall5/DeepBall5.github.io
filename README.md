@@ -1,8 +1,8 @@
-# Purdy
+# Purdillion
 
 The daily NFL trivia game where the obvious answer is a kneel-down.
 
-Named for Brock Purdy, the last pick of the 2022 draft (No. 262), who went on to start a Super Bowl. In this game too, the pick nobody else makes is the one that wins.
+Brock Purdy plus [Krillion](https://krillion.io), the rare-answer trivia game it's modeled on. Purdy was the last pick of the 2022 draft (No. 262) and went on to start a Super Bowl. In this game too, the pick nobody else makes is the one that wins.
 
 Seven plays, a 25-second play clock, and rare answers gain big yards. Reach field goal range or punch it in for a touchdown. New drive every day, plus an archive of past drives and unlimited practice.
 
